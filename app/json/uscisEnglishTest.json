@@ -1,0 +1,24 @@
+{
+  "N1": {
+    "Q": "What is an amendment?",
+    "C1": "It's a change to the Constitution.",
+    "C2": "It's part of the Electoral College.",
+    "C3": "It's the process by which Supreme Court Justices are chosen.",
+    "C4": "It's a vote in Congress."
+  },
+  "N2": {
+    "Q": "How many U.S. Senators are there?",
+    "C1": "2",
+    "C2": "435",
+    "C3": "100",
+    "C4": "50",
+  },
+  "N3": {
+    "Q": "Who vetoes bills?",
+    "C1": "The Speaker of the House",
+    "C2": "The Vice President",
+    "C3": "The President",
+    "C4": "The Senate Majority Leader"
+  }
+
+}

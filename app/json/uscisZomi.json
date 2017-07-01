@@ -1,0 +1,68 @@
+{
+  "N1": {
+    "Q": "USA gam ii zuih thukhun Upadi thupi pen bang hiam? ",
+    "A": "Gammki-ukna Thukhunpi hi ",
+    "index": 0,
+  },
+  "N2": {
+    "Q": "Gamki-ukna Thukhunpi in bangteng vaan hiam?",
+    "A": " Gam-uk ding kumpi phut, Ki-ukzia ding geel, Americans mite’ septheih leh ngahtheih peuhmah peelhem saklo (protects)",
+    "index": 1,
+  },
+  "N3": {
+    "Q": "Gamki-ukna Thukhunpi sungah ei leh ei ki-ukzia ding lamlak kammal thumte bang hiam?",
+    "A": "Ei mipite",
+    "index": 2,
+  },
+  "N4": {
+    "Q": "Upadi Puahphatna/behlapna (Amendment) icih bang hiam? ",
+    "A": "Akikheelna khat, Guanbeh (Behlap)",
+    "index": 3,
+  },
+  "N5": {
+    "Q": "Gamki-ukna Thukhunpi sungah Puahphat masakna sawmte bang kici hiam?",
+    "A": "Hamphatnading Upadi",
+    "index": 4,
+  },
+  "N6": {
+    "Q": "Tua Puahphat Masakna ah hamphatna ahihkeh suahtakna khat bang ahia?",
+    "A": "Thugentheihna, Biakpiaktheihna, Kikaihkhoptheihna, Laigelh leh hawmtheihna, Kumpi tungah lungkimlohna gentheih/pulaktheihna",
+    "index": 5,
+  },
+  "N7": {
+    "Q": "Gamki-ukna Thukhunpi bangzah vei kipuahpha ta hiam?",
+    "A": "27 vei",
+    "index": 6,
+  },
+  "N8": {
+    "Q": "Suahtakna Thutangkopina bang hiam?",
+    "A": "(Great Britain te kiangpan) suahtak tangkona, - (Great Britain te kiangpan) suahtak pulakkhia, (Great Britain te kiangpan) Americante (United States) suakta hi ei cihkhiatna ",
+    "index": 7,
+  },
+  "N9": {
+    "Q": "Suahtakna Thutangkopi in hong phal hamphatna thunihte bang a hia?",
+    "A": "Nuntak khuasakna, Kiphalna, Nopsak banga zontheihna ",
+    "index": 8,
+  },
+  "N10": {
+    "Q": "Biakna Suahtakna in bang hiam?",
+    "A": "Biakna khat peuhpeuh ah na utleh biathei/bialothei lel a omna",
+    "index": 9,
+  },
+  "N11": {
+    "Q": "United States ah kizang neih-le-lam,silh-le-teen khantohna (sipuazi paizia) ah bangdan in pai hiam?",
+    "A": "Aziansian sanit (Sumneite bulphuh) paizia, - Sumzuaknamun thupitsakna (Zaykuat sipuazi)",
+    "index": 10,
+  },
+  "N12": {
+    "Q": "Upadi tawh ki-uk cih bang hiam?",
+    "A": "Mikim in upadi zui/mang ding, Makaite in zong upadi zui/mang ding, Kumpi in zong upadi zui/mang ding, Kuamahpeuh upadi huamkhakloh omtuansaklo ding",
+    "index": 12,
+  },
+  "N2": {
+    "Q": "",
+    "A": "",
+    "index": 1,
+  },
+  
+}
