@@ -91,7 +91,8 @@ class Study extends Component {
                            onAnimationEnd={()=>this.setState({animation: ''})}>
             <Cards flip={this.flip.bind(this)}
                    english={this.state.english}
-                   zomi={this.state.zomi}/>
+                  // zomi={this.state.zomi}
+                 />
           </Animatable.View>
           <View style={styles.controlCard}>
             <ControlCard nextCard={this.nextCard.bind(this)}

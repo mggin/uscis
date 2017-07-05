@@ -25,10 +25,10 @@ export default class Route extends Component {
                  // initial={true}
                  component={Menu}/>
           <Scene key='study'
-                 // initial={true}
+                 initial={true}
                  component={Study}/>
           <Scene key='test'
-                 initial={true}
+                 // initial={true}
                  component={Test}/>
       </Router>
     )

@@ -14,9 +14,26 @@ export default class Block extends Component{
     var {height, width} = Dimensions.get('window')
     this.state={
       height,
-      width
+      width,
+      color1: 'white',
+      color2: 'white',
+      color3: 'white',
+      color4: 'white'
+
     }
 
+  }
+
+  setColor(choice) {
+    if (choice === 'C1') {
+      this.setState({color1: 'blue', color2: 'white', color3: 'white', color4: 'white'})
+    } else if (choice === 'C2') {
+      this.setState({color1: 'white', color2: 'blue', color3: 'white', color4: 'white'})
+    } else if (choice === 'C3') {
+      this.setState({color1: 'white', color2: 'white', color3: 'blue', color4: 'white'})
+    } else if (choice === 'C4') {
+      this.setState({color1: 'white', color2: 'white', color3: 'white', color4: 'blue'})
+    } else {}
   }
 
   render() {
@@ -34,23 +51,23 @@ export default class Block extends Component{
         <View style={styles.ques}>
           <Text style={styles.quesTxt}>{quiz}</Text>
         </View>
-        <View style={styles.box}>
-          <TouchableOpacity onPress={() => console.log('')}>
+        <View style={[styles.box, {backgroundColor: this.state.color1}]}>
+          <TouchableOpacity onPress={() => this.setColor('C1')}>
             <Text>{c1}</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.box}>
-          <TouchableOpacity onPress={() => console.log('')}>
+        <View style={[styles.box, {backgroundColor: this.state.color2}]}>
+          <TouchableOpacity onPress={() => this.setColor('C2')}>
             <Text>{c2}</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.box}>
-          <TouchableOpacity onPress={() => console.log('')}>
+        <View style={[styles.box, {backgroundColor: this.state.color3}]}>
+          <TouchableOpacity onPress={() => this.setColor('C3')}>
             <Text>{c3}</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.box}>
-          <TouchableOpacity onPress={() => console.log('')}>
+        <View style={[styles.box, {backgroundColor: this.state.color4}]}>
+          <TouchableOpacity onPress={() => this.setColor('C4')}>
             <Text>{c4}</Text>
           </TouchableOpacity>
         </View>

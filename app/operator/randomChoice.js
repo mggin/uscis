@@ -11,11 +11,10 @@ export function randomChoice() {
         listOfRandomChoice.push(num)
       }
     }
+    // This if statement ends the while-loop
     if (listOfRandomChoice.length === 4) {
       condition = false
     }
   }
-
-console.log(listOfRandomChoice)
-  // console.log(listOfRandomChoiceOfRandomQuiz)
+  // console.log(listOfRandomChoice)
 }
