@@ -25,7 +25,8 @@ class Study extends Component {
       currentCard: [],
       height,
       width,
-      animation: ''
+      animation: '',
+      alignText: 'center',
     }
   }
   componentDidMount() {
@@ -59,6 +60,7 @@ class Study extends Component {
     } else if (this.state.front === false) {
       this.state.front = true
     } else {}
+    this.setState({textAlign: 'left'})
     this.setText()
 
   }
@@ -91,6 +93,7 @@ class Study extends Component {
                            onAnimationEnd={()=>this.setState({animation: ''})}>
             <Cards flip={this.flip.bind(this)}
                    english={this.state.english}
+                   alignText={this.state.alignText}
                   // zomi={this.state.zomi}
                  />
           </Animatable.View>

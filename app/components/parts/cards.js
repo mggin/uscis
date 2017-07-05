@@ -13,10 +13,10 @@ const Card = (props) => {
     <TouchableOpacity onPress={() => props.flip()}
                       activeOpacity={0.3}
                       style={styles.container}>
-      <Text style={styles.englishTxt}>
+      <Text style={[styles.englishTxt, {textAlign: props.textAlign}]}>
         {props.english}
       </Text>
-      <Text style={styles.zomiTxt}>
+      <Text style={[styles.englishTxt, {textAlign: props.textAlign}]}>
         {props.zomi}
       </Text>
     </TouchableOpacity>

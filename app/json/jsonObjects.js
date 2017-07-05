@@ -1,6 +1,7 @@
+import uscisEnglish from './uscisEnglish.json'
+import uscisZomi from './uscisZomi.json'
+import uscisEnglishTest from './uscisEnglishTest.json'
 import uscisZomiTest from './uscisZomiTest.json'
-import uscisZomiTest from './uscisZomiTest.json'
-import uscisZomiTestTest from './uscisZomiTestTest.json'
 
 export const listOfEnglish = [uscisEnglish.N1, uscisEnglish.N2, uscisEnglish.N3, uscisEnglish.N4, uscisEnglish.N5,
                               uscisEnglish.N6, uscisEnglish.N7, uscisEnglish.N8, uscisEnglish.N9, uscisEnglish.N10,
