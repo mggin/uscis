@@ -22,10 +22,10 @@ export default class Route extends Component {
       <Router key='root'
               hideNavBar={true}>
           <Scene key='menu'
-                 // initial={true}
+                 initial={true}
                  component={Menu}/>
           <Scene key='study'
-                 initial={true}
+                 // initial={true}
                  component={Study}/>
           <Scene key='test'
                  // initial={true}
