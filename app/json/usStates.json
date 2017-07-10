@@ -1,0 +1,163 @@
+{
+  "S1": {
+    "name": "Alabama"
+  },
+  "S2": {
+    "name": "Alaska"
+  },
+  "S3": {
+    "name": "Arizona"
+  },
+  "S4": {
+    "name": "Arkansas"
+  },
+  "S5": {
+    "name": "California"
+  },
+  "S6": {
+    "name": "Colorado"
+  },
+  "S7": {
+    "name": "Connecticut"
+  },
+  "S8": {
+    "name": "Delaware"
+  },
+  "S9": {
+    "name": "Florida"
+  },
+  "S10": {
+    "name": "Georgia"
+  },
+  "S11": {
+    "name": "Hawaii"
+  },
+  "S12": {
+    "name": "Idaho"
+  },
+  "S13": {
+    "name": "Illinois"
+  },
+  "S14": {
+    "name": "Indiana"
+  },
+  "S15": {
+    "name": "Iowa"
+  },
+  "S16": {
+    "name": "Kansas"
+  },
+  "S17": {
+    "name": "Kentucky"
+  },
+  "S18": {
+    "name": "Louisiana"
+  },
+  "S19": {
+    "name": "Maine"
+  },
+  "S20": {
+    "name": "Maryland"
+  },
+  "S21": {
+    "name": "Massachusetts"
+  },
+  "S22": {
+    "name": "Michigan"
+  },
+  "S23": {
+    "name": "Minnesota"
+  },
+  "S24": {
+    "name": "Mississippi"
+  },
+  "S25": {
+    "name": "Missouri"
+  },
+  "S26": {
+    "name": "Montana"
+  },
+  "S27": {
+    "name": "Nebraska"
+  },
+  "S28": {
+    "name": "Nevada"
+  },
+  "S29": {
+    "name": "New Hampshire"
+  },
+  "S30": {
+    "name": "New Jersey"
+  },
+  "S31": {
+    "name": "New Mexico"
+  },
+  "S32": {
+    "name": "New York"
+  },
+  "S33": {
+    "name": "North Carolina"
+  },
+  "S34": {
+    "name": "North Dakota"
+  },
+  "S35": {
+    "name": "Ohio"
+  },
+  "S36": {
+    "name": "Oklahoma"
+  },
+  "S37": {
+    "name": "Oregon"
+  },
+  "S38": {
+    "name": "Pennsylvania"
+  },
+  "S39": {
+    "name": "Rhode Island"
+  },
+  "S40": {
+    "name": "South Carolina"
+  },
+  "S41": {
+    "name": "South Dakota"
+  },
+  "S42": {
+    "name": "Tennessee"
+  },
+  "S43": {
+    "name": "Texas"
+  },
+  "S44": {
+    "name": "Utah"
+  },
+  "S45": {
+    "name": "Vermont"
+  },
+  "S46": {
+    "name": "Virginia"
+  },
+  "S47": {
+    "name": "Washington"
+  },
+  "S48": {
+    "name": "West Virginia"
+  },
+  "S49": {
+    "name": "Wisconsin"
+  },
+  "S50": {
+    "name": "Wyoming"
+  }
+}
+
+
+Tennessee
+Texas
+Utah
+Vermont
+Virginia
+Washington
+West Virginia
+Wisconsin
+Wyoming

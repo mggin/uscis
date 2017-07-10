@@ -15,6 +15,7 @@ import {Router,
 import Menu from './components/menu'
 import Study from './components/study'
 import Test from './components/test'
+import Setting from './components/setting'
 
 export default class Route extends Component {
   render() {
@@ -22,14 +23,17 @@ export default class Route extends Component {
       <Router key='root'
               hideNavBar={true}>
           <Scene key='menu'
-                 initial={true}
+                 //initial={true}
                  component={Menu}/>
           <Scene key='study'
-                 // initial={true}
+                 //initial={true}
                  component={Study}/>
           <Scene key='test'
-                 // initial={true}
+                 //initial={true}
                  component={Test}/>
+          <Scene key='test'
+                 initial={true}
+                 component={Setting}/>
       </Router>
     )
   }

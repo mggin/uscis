@@ -5,8 +5,9 @@ import {
   TouchableOpacity,
   Text,
   Image,
+  Dimensions
 } from 'react-native'
-
+const {width, height} = Dimensions.get('window')
 const ControlBlocks = (props) => {
   return (
     <View style={styles.row}>
@@ -28,10 +29,12 @@ const ControlBlocks = (props) => {
 
 const styles=StyleSheet.create({
   row: {
-    flex: 1,
+    width: width,
+    height: 100,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'space-around',
+    backgroundColor: '#ecf0f1'
   },
   backImg: {
     width: 40,
