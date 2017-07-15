@@ -3,20 +3,21 @@ import {
   View,
   StyleSheet,
   Dimensions,
+  Text
 } from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import Cards from './parts/cards'
 import ControlCard from './parts/controlCards'
+import NavBar from './settings/navBar'
 import {listOfEnglish, listOfZomi} from '../json/jsonObjects'
 // import sample from '../json/sample.js'
-
+const {height, width} = Dimensions.get('window')
 class Study extends Component {
   constructor(props){
     super(props)
     this.flip = this.flip.bind(this)
     this.nextCard = this.nextCard.bind(this)
     this.previousCard = this.previousCard.bind(this)
-    var {height, width} = Dimensions.get('window')
     this.state={
       english: "",
       zomi: "",
@@ -74,26 +75,32 @@ class Study extends Component {
   setText() {
     this.defineCurrentCard()
     if (this.state.front === true) {
-      zomi = this.state.currentCard[1].Q
-      english = this.state.currentCard[0].Q
+      question = this.state.currentCard[0].Q
+      answer = this.state.currentCard[0].A
     } else if (this.state.front === false) {
-      zomi = this.state.currentCard[1].A
-      english = this.state.currentCard[0].A
+      question = this.state.currentCard[1].Q
+      answer = this.state.currentCard[1].A
     } else {}
-    this.setState({english: english, zomi: zomi})
+    this.setState({question: question, answer: answer})
    console.log(this.state.front)
   }
   render() {
     return (
+    <View style={{flex: 1}}>
+      <NavBar />
       <View style={styles.container}>
         <View style={[styles.cardContainer, {width: this.state.width, height: this.state.height/1.5}]}>
+          <View style={styles.counter}>
+            <Text style={styles.counterTxt}>{this.state.index}/100</Text>
+          </View>
           <Animatable.View style={styles.card}
                            animation={this.state.animation}
                            duration={1000}
                            onAnimationEnd={()=>this.setState({animation: ''})}>
-            <Cards flip={this.flip.bind(this)}
-                   english={this.state.english}
-                   alignText={this.state.alignText}
+            <Cards flip={this.flip}
+                   question={this.state.question}
+                   answer={this.state.answer}
+                   // alignText={this.state.alignText}
                   // zomi={this.state.zomi}
                  />
           </Animatable.View>
@@ -102,7 +109,9 @@ class Study extends Component {
                          previousCard={this.previousCard.bind(this)}/>
           </View>
         </View>
+
       </View>
+    </View>
     )
   }
 }
@@ -120,13 +129,27 @@ const styles=StyleSheet.create({
     card: {
       flex: 6,
       backgroundColor: '#ecf0f1',
-      borderRadius: 5,
+      // borderRadius: 5,
       borderWidth: StyleSheet.hairlineWidth,
       margin: 10,
     },
     controlCard: {
       flex: 1,
       // backgroundColor: 'red'
+    },
+    counter: {
+      backgroundColor: 'rgb(0, 102, 102)',
+      borderRadius: 20,
+      marginLeft: 10,
+      marginBottom: 10,
+      padding: 5,
+      width: 100,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    counterTxt: {
+      color: 'white',
+      fontFamily: 'Times New Roman'
     }
 })
 

@@ -7,17 +7,20 @@ import {
   StyleSheet,
 } from 'react-native'
 
-const {width, height} = Dimensions.get('window')
-console.log(width/4)
-console.log(height/10)
 
+import {checkAnswer} from '../../operator/setQuiz'
+
+/* This appear on the top of test UI, which let you quit from the test */
+const {width, height} = Dimensions.get('window')
 const QuitBar = (props) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}
+                       onPress={() => props.checkAnswer()}>
       <Image source={require('../../assets/uscis-exit.png')}
              resizeMode="cover"
-             style={styles.quitImg}/>
-    </View>
+             style={styles.quitImg}
+             />
+    </TouchableOpacity>
   )
 }
 

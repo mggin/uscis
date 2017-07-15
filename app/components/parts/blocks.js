@@ -8,12 +8,12 @@ import {
 } from 'react-native'
 
 import ControlBlocks from './controlBlocks'
+import {numOfRandomChoice, selectedChoices, selectedChoiceToCheck } from '../../operator/setQuiz'
 
-import {numOfRandomChoice, selectedChoices} from '../../operator/setQuiz'
+const {height, width} = Dimensions.get('window')
 export default class Block extends Component{
   constructor(props) {
     super(props)
-    var {height, width} = Dimensions.get('window')
     this.state={
       height,
       width,
@@ -22,7 +22,6 @@ export default class Block extends Component{
       color2: 'white',
       color3: 'white',
       color4: 'white'
-
     }
 
   }
@@ -34,37 +33,37 @@ export default class Block extends Component{
     ++this.state.index
     this.setAnswer(selectedChoices[this.state.index])
   }
-
   previousBlock() {
     this.props.previousBlock()
     --this.state.index
     this.setAnswer(selectedChoices[this.state.index])
   }
-
-  setAnswer(choice) {
-    if (choice === 'C1') {
+  /* setAnswer takes user choices and change the color
+  of choic boxes into different color */
+  setAnswer(choiceShort, choiceLong) {
+    if (choiceShort === 'C1') {
       this.setState({color1: '#3498db', color2: 'white', color3: 'white', color4: 'white'})
-      this.props.onSelect(this.state.index, choice)
-    } else if (choice === 'C2') {
+      this.props.onSelect(this.state.index, choiceShort, choiceLong)
+    } else if (choiceShort === 'C2') {
       this.setState({color1: 'white', color2: '#3498db', color3: 'white', color4: 'white'})
-      this.props.onSelect(this.state.index, choice)
-    } else if (choice === 'C3') {
+      this.props.onSelect(this.state.index, choiceShort, choiceLong)
+    } else if (choiceShort === 'C3') {
       this.setState({color1: 'white', color2: 'white', color3: '#3498db', color4: 'white'})
-      this.props.onSelect(this.state.index, choice)
-    } else if (choice === 'C4') {
+      this.props.onSelect(this.state.index, choiceShort, choiceLong)
+    } else if (choiceShort === 'C4') {
       this.setState({color1: 'white', color2: 'white', color3: 'white', color4: '#3498db'})
-      this.props.onSelect(this.state.index, choice)
+      this.props.onSelect(this.state.index, choiceShort, choiceLong)
     } else {
       this.setState({color1: 'white', color2: 'white', color3: 'white', color4: 'white'})
     }
   }
 
   render() {
-    var index = this.props.index + 1
-    var quiz = this.props.quiz.Q
-    var choices = [this.props.quiz.C1, this.props.quiz.C2, this.props.quiz.C3, this.props.quiz.C4]
-    var randomChoices = []
-    for (var i = 0; i < choices.length; i++) {
+    let index = this.props.index + 1 // to show question number
+    let quiz = this.props.quiz.Q //
+    const choices = [this.props.quiz.C1, this.props.quiz.C2, this.props.quiz.C3, this.props.quiz.C4]
+    const randomChoices = [] // hold the arrary of randomChoices for answer
+    for (let i = 0; i < choices.length; i++) {
       randomChoices.push(choices[numOfRandomChoice[i]])
     }
 
@@ -78,22 +77,22 @@ export default class Block extends Component{
             <Text style={styles.quesTxt}>{quiz}</Text>
           </View>
           <View style={[styles.box, {backgroundColor: this.state.color1}]}>
-            <TouchableOpacity onPress={() => this.setAnswer('C1')}>
+            <TouchableOpacity onPress={() => this.setAnswer('C1',randomChoices[0] )}>
               <Text style={styles.choiceTxt}>{randomChoices[0]}</Text>
             </TouchableOpacity>
           </View>
           <View style={[styles.box, {backgroundColor: this.state.color2}]}>
-            <TouchableOpacity onPress={() => this.setAnswer('C2')}>
+            <TouchableOpacity onPress={() => this.setAnswer('C2', randomChoices[1])}>
               <Text style={styles.choiceTxt}>{randomChoices[1]}</Text>
             </TouchableOpacity>
           </View>
           <View style={[styles.box, {backgroundColor: this.state.color3}]}>
-            <TouchableOpacity onPress={() => this.setAnswer('C3')}>
+            <TouchableOpacity onPress={() => this.setAnswer('C3', randomChoices[2])}>
               <Text style={styles.choiceTxt}>{randomChoices[2]}</Text>
             </TouchableOpacity>
           </View>
           <View style={[styles.box, {backgroundColor: this.state.color4}]}>
-            <TouchableOpacity onPress={() => this.setAnswer('C4')}>
+            <TouchableOpacity onPress={() => this.setAnswer('C4', randomChoices[3])}>
               <Text style={styles.choiceTxt}>{randomChoices[3]}</Text>
             </TouchableOpacity>
           </View>
@@ -149,7 +148,4 @@ const styles=StyleSheet.create({
  blockContainer: {
    flex: 1,
  }
-
-
-
 })

@@ -7,40 +7,65 @@ import {
   Text,
   ScrollView,
   StatusBar,
+  AsyncStorage
 } from 'react-native'
 import QuitBar from './parts/quitBar'
 import Block from './parts/blocks'
 import Ads1 from './ads/ads1'
 import ControlBlocks from './parts/controlBlocks'
 import {listOfEnglishTest} from '../json/jsonObjects'
-import {setQuiz, listOfQuiz, numOfRandomQuiz, selectedChoices} from '../operator/setQuiz'
+import {setQuiz, listOfQuiz, numOfRandomQuiz, selectedChoices, checkAnswer, selectedChoiceToCheck} from '../operator/setQuiz'
 
 export default class Test extends Component {
   constructor(props) {
     super(props)
+    this.nextBlock = this.nextBlock.bind(this)
+    this.previousBlock = this.previousBlock.bind(this)
+    this.onSelect = this.onSelect.bind(this)
+    this.checkAnswer = this.checkAnswer.bind(this)
     this.state={
       quiz: listOfEnglishTest[numOfRandomQuiz[0]],
       index: 0,
-      change: '',
+      quizQuantity: 0
     }
 
   }
-  componentWillMount() {
-    setQuiz()
+  componentDidMount() {
+    console.log('first')
+    var quizQuantity = 0
+    AsyncStorage.getItem('@QU1Z', (err, result) => {
+      // console.log(err)
+      // quizQuantity = result
+      setQuiz(result)
+      // this.setState({quizQuantity: result})
+
+    })
+    // console.log(quizQuantity)
+
   }
+
+
 
   previousBlock() {
     this.state.index --
-    this.setState({quiz: listOfQuiz[this.state.index], change: 'ON'})
+    this.setState({quiz: listOfQuiz[this.state.index]})
   }
 
   nextBlock() {
     this.state.index++
-    this.setState({quiz: listOfQuiz[this.state.index], change: 'OFF'})
+    this.setState({quiz: listOfQuiz[this.state.index]})
   }
-  onSelect(index, ans) {
-    selectedChoices[index] = ans
-    console.log(selectedChoices)
+
+  /* assign the choice on the list in order to highlight the answer when
+  making changes */
+  onSelect(index, choiceShort, choiceLong) {
+    selectedChoices[index] = choiceShort
+    selectedChoiceToCheck[index] = choiceLong
+
+    // console.log(selectedChoices)
+  }
+  checkAnswer() {
+    checkAnswer(selectedChoices)
   }
 
   render() {
@@ -56,11 +81,11 @@ export default class Test extends Component {
       <View style={{flex: 1}}>
         <StatusBar backgroundColor="blue"
                    barStyle="light-content" />
-        <QuitBar />
+        <QuitBar checkAnswer={this.checkAnswer}/>
         <Block quiz={this.state.quiz} selected={selectedChoices[this.state.index]}
-               index={this.state.index} onSelect={this.onSelect.bind(this)}
-               changes={this.state.change} nextBlock={this.nextBlock.bind(this)} previousBlock={this.previousBlock.bind(this)}/>
-      
+               index={this.state.index} onSelect={this.onSelect}
+               changes={this.state.change} nextBlock={this.nextBlock} previousBlock={this.previousBlock}/>
+
       </View>
     )
   }

@@ -2,6 +2,7 @@ import uscisEnglish from './uscisEnglish.json'
 import uscisZomi from './uscisZomi.json'
 import uscisEnglishTest from './uscisEnglishTest.json'
 import uscisZomiTest from './uscisZomiTest.json'
+import usStates from './usStates.json'
 
 export const listOfEnglish = [uscisEnglish.N1, uscisEnglish.N2, uscisEnglish.N3, uscisEnglish.N4, uscisEnglish.N5,
                               uscisEnglish.N6, uscisEnglish.N7, uscisEnglish.N8, uscisEnglish.N9, uscisEnglish.N10,
@@ -86,3 +87,15 @@ export const listOfZomiTest = [ uscisZomiTest.N1, uscisZomiTest.N2, uscisZomiTes
                                 uscisZomiTest.N86, uscisZomiTest.N87, uscisZomiTest.N88, uscisZomiTest.N89, uscisZomiTest.N90,
                                 uscisZomiTest.N91, uscisZomiTest.N92, uscisZomiTest.N93, uscisZomiTest.N94, uscisZomiTest.N95,
                                 uscisZomiTest.N96, uscisZomiTest.N97, uscisZomiTest.N98, uscisZomiTest.N99, uscisZomiTest.N100]
+
+
+export const states = [ usStates.S1, usStates.S2, usStates.S3, usStates.S4, usStates.S5,
+                        usStates.S6, usStates.S7, usStates.S8, usStates.S9, usStates.S10,
+                        usStates.S11, usStates.S12, usStates.S13, usStates.S14, usStates.S15,
+                        usStates.S16, usStates.S17, usStates.S18, usStates.S19, usStates.S20,
+                        usStates.S21, usStates.S22, usStates.S23, usStates.S24, usStates.S25,
+                        usStates.S26, usStates.S27, usStates.S28, usStates.S29, usStates.S30,
+                        usStates.S31, usStates.S32, usStates.S33, usStates.S34, usStates.S35,
+                        usStates.S36, usStates.S37, usStates.S38, usStates.S39, usStates.S40,
+                        usStates.S41, usStates.S42, usStates.S43, usStates.S44, usStates.S45,
+                        usStates.S46, usStates.S47, usStates.S48, usStates.S49, usStates.S50 ]

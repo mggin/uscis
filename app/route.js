@@ -23,7 +23,7 @@ export default class Route extends Component {
       <Router key='root'
               hideNavBar={true}>
           <Scene key='menu'
-                 //initial={true}
+                 initial={true}
                  component={Menu}/>
           <Scene key='study'
                  //initial={true}
@@ -31,8 +31,8 @@ export default class Route extends Component {
           <Scene key='test'
                  //initial={true}
                  component={Test}/>
-          <Scene key='test'
-                 initial={true}
+          <Scene key='setting'
+                 // initial={true}
                  component={Setting}/>
       </Router>
     )

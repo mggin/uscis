@@ -12,6 +12,8 @@ import {
   View,
   Image,
 } from 'react-native';
+
+import {Actions, Scenes} from 'react-native-router-flux'
 // import studyImage from './assets/uscis-study.png'
 
 export default class Menu extends Component {
@@ -20,14 +22,16 @@ export default class Menu extends Component {
       <View style={styles.container}>
         <View style={styles.row}>
           <View style={styles.studyGuide}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => Actions.study()}
+                              activeOpacity={0.7}>
               <Image source={require('../assets/uscis-study.png')}
                      resizeMode="cover"
                      style={styles.menuStyle}/>
             </TouchableOpacity>
           </View>
           <View style={styles.test}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => Actions.test()}
+                              activeOpacity={0.7}>
               <Image source={require('../assets/uscis-test.png')}
                      resizeMode="cover"
                      style={styles.menuStyle}/>
@@ -36,7 +40,7 @@ export default class Menu extends Component {
         </View>
         <View style={styles.row}>
           <View style={styles.setting}>
-            <TouchableOpacity onPress={() => console.log()}
+            <TouchableOpacity onPress={() => Actions.setting()}
                               activeOpacity={0.7}>
               <Image source={require('../assets/uscis-setting.png')}
                      resizeMode="cover"
@@ -44,7 +48,8 @@ export default class Menu extends Component {
             </TouchableOpacity>
           </View>
           <View style={styles.aboutUs}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => Actions.menu()}
+                              activeOpacity={0.7}>
               <Image source={require('../assets/uscis-aboutUs.png')}
                      resizeMode="cover"
                      style={styles.menuStyle}/>

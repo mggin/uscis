@@ -1,163 +1,303 @@
 {
   "S1": {
-    "name": "Alabama"
+    "name": "Alabama",
+    "senate": "Shelby, Richard C. \nStrange, Luther",
+    "repersent": "",
+    "city": "Montgomery",
   },
   "S2": {
-    "name": "Alaska"
+    "name": "Alaska",
+    "senate": "Murkowski, Lisa \nSullivan, Dan",
+    "repersent": "",
+    "city": "Juneau",
   },
   "S3": {
-    "name": "Arizona"
+    "name": "Arizona",
+    "senate": "Flake, Jeff \nMcCain, John",
+    "repersent": "",
+    "city": "Phoenix",
   },
   "S4": {
-    "name": "Arkansas"
+    "name": "Arkansas",
+    "senate": "Boozman, John \nCotton, Tom",
+    "repersent": "",
+    "city": "Little Rock",
   },
   "S5": {
-    "name": "California"
+    "name": "California",
+    "senate": "Feinstein, Dianne \nHarris, Kamala D.",
+    "repersent": "",
+    "city": "Sacramento",
   },
   "S6": {
-    "name": "Colorado"
+    "name": "Colorado",
+    "senate": "Bennet, Michael F. \nGardner, Cory",
+    "repersent": "",
+    "city": "Denver",
   },
   "S7": {
-    "name": "Connecticut"
+    "name": "Connecticut",
+    "senate": "Blumenthal, Richard \nMurphy, Christopher",
+    "repersent": "",
+    "city": "Hartford",
   },
   "S8": {
-    "name": "Delaware"
+    "name": "Delaware",
+    "senate": "Carper, Thomas R. \nCoons, Christopher A.",
+    "repersent": "",
+    "city": "Dover",
   },
   "S9": {
-    "name": "Florida"
+    "name": "Florida",
+    "senate": "Nelson, Bill \nRubio, Marco",
+    "repersent": "",
+    "city": "Tallahassee",
   },
   "S10": {
-    "name": "Georgia"
+    "name": "Georgia",
+    "senate": "Isakson, Johnny \nPerdue, David",
+    "repersent": "",
+    "city": "Atlanta",
   },
   "S11": {
-    "name": "Hawaii"
+    "name": "Hawaii",
+    "senate": "Hirono, Mazie K. \nSchatz, Brian",
+    "repersent": "",
+    "city": "Honolulu",
   },
   "S12": {
-    "name": "Idaho"
+    "name": "Idaho",
+    "senate": "Crapo, Mike \nRisch, James E.",
+    "repersent": "",
+    "city": "Boise",
   },
   "S13": {
-    "name": "Illinois"
+    "name": "Illinois",
+    "senate": "Duckworth, Tammy \nDurbin, Richard J.",
+    "repersent": "",
+    "city": "Springfield",
   },
   "S14": {
-    "name": "Indiana"
+    "name": "Indiana",
+    "senate": "Donnelly, Joe \nYoung, Todd",
+    "repersent": "",
+    "city": "",
   },
   "S15": {
-    "name": "Iowa"
+    "name": "Iowa",
+    "senate": "Ernst, Joni \nGrassley, Chuck",
+    "repersent": "",
+    "city": "Des Moines",
   },
   "S16": {
-    "name": "Kansas"
+    "name": "Kansas",
+    "senate": "Moran, Jerry \nRoberts, Pat",
+    "repersent": "",
+    "city": "Topeka",
   },
   "S17": {
-    "name": "Kentucky"
+    "name": "Kentucky",
+    "senate": "McConnell, Mitch \nPaul, Rand",
+    "repersent": "",
+    "city": "Frankfort",
   },
   "S18": {
-    "name": "Louisiana"
+    "name": "Louisiana",
+    "senate": "Cassidy, Bill \nKennedy, John",
+    "repersent": "",
+    "city": "Baton Rouge",
   },
   "S19": {
-    "name": "Maine"
+    "name": "Maine",
+    "senate": "Collins, Susan M. \nKing, Angus S., Jr.",
+    "repersent": "",
+    "city": "Augusta",
   },
   "S20": {
-    "name": "Maryland"
+    "name": "Maryland",
+    "senate": "Cardin, Benjamin L. \nVan Hollen, Chris",
+    "repersent": "",
+    "city": "Annapolis",
   },
   "S21": {
-    "name": "Massachusetts"
+    "name": "Massachusetts",
+    "senate": "Markey, Edward J. \nWarren, Elizabeth",
+    "repersent": "",
+    "city": "Boston",
   },
   "S22": {
-    "name": "Michigan"
+    "name": "Michigan",
+    "senate": "Peters, Gary C. \nStabenow, Debbie",
+    "repersent": "",
+    "city": "Lansing",
   },
   "S23": {
-    "name": "Minnesota"
+    "name": "Minnesota",
+    "senate": "Franken, Al \nKlobuchar, Amy",
+    "repersent": "",
+    "city": "St.Paul",
   },
   "S24": {
-    "name": "Mississippi"
+    "name": "Mississippi",
+    "senate": "Cochran, Thad \nWicker, Roger F.",
+    "repersent": "",
+    "city": "Jackson",
   },
   "S25": {
-    "name": "Missouri"
+    "name": "Missouri",
+    "senate": "Blunt, Roy \nMcCaskill, Claire",
+    "repersent": "",
+    "city": "Jefferson City",
   },
   "S26": {
-    "name": "Montana"
+    "name": "Montana",
+    "senate": "Daines, Steve \nTester, Jon",
+    "repersent": "",
+    "city": "Helena",
   },
   "S27": {
-    "name": "Nebraska"
+    "name": "Nebraska",
+    "senate": "Fischer, Deb \nSasse, Ben",
+    "repersent": "",
+    "city": "Lincoln",
   },
   "S28": {
-    "name": "Nevada"
+    "name": "Nevada",
+    "senate": "Cortez Masto, Catherine \nHeller, Dean",
+    "repersent": "",
+    "city": "Carson City",
   },
   "S29": {
-    "name": "New Hampshire"
+    "name": "New Hampshire",
+    "senate": "Hassan, Margaret Wood \nShaheen, Jeanne",
+    "repersent": "",
+    "city": "Concord",
   },
   "S30": {
-    "name": "New Jersey"
+    "name": "New Jersey",
+    "senate": "Booker, Cory A. \nMenendez, Robert",
+    "repersent": "",
+    "city": "Trenton",
   },
   "S31": {
-    "name": "New Mexico"
+    "name": "New Mexico",
+    "senate": "Heinrich, Martin \nUdall, Tom",
+    "repersent": "",
+    "city": "Santa Fe",
   },
   "S32": {
-    "name": "New York"
+    "name": "New York",
+    "senate": "Gillibrand, Kirsten E. \nSchumer, Charles E.",
+    "repersent": "",
+    "city": "Albany",
   },
   "S33": {
-    "name": "North Carolina"
+    "name": "North Carolina",
+    "senate": "Burr, Richard \nTillis, Thom",
+    "repersent": "",
+    "city": "Raleigh",
   },
   "S34": {
-    "name": "North Dakota"
+    "name": "North Dakota",
+    "senate": "Heitkamp, Heidi \nHoeven, John",
+    "repersent": "",
+    "city": "Bismarck",
   },
   "S35": {
-    "name": "Ohio"
+    "name": "Ohio",
+    "senate": "Brown, Sherrod \nPortman, Rob",
+    "repersent": "",
+    "city": "Columbus",
   },
   "S36": {
-    "name": "Oklahoma"
+    "name": "Oklahoma",
+    "senate": "Inhofe, James M. \nLankford, James",
+    "repersent": "",
+    "city": "Oklahoma City",
   },
   "S37": {
-    "name": "Oregon"
+    "name": "Oregon",
+    "senate": "Merkley, Jeff \nWyden, Ron",
+    "repersent": "",
+    "city": "Salem",
   },
   "S38": {
-    "name": "Pennsylvania"
+    "name": "Pennsylvania",
+    "senate": "Casey, Robert P., Jr. \nToomey, Patrick J.",
+    "repersent": "",
+    "city": "Harrisburg",
   },
   "S39": {
-    "name": "Rhode Island"
+    "name": "Rhode Island",
+    "senate": "Reed, Jack \nWhitehouse, Sheldon",
+    "repersent": "",
+    "city": "Providence",
   },
   "S40": {
-    "name": "South Carolina"
+    "name": "South Carolina",
+    "senate": "Graham, Lindsey \nScott, Tim",
+    "repersent": "",
+    "city": "Columbia",
   },
   "S41": {
-    "name": "South Dakota"
+    "name": "South Dakota",
+    "senate": "Rounds, Mike \nThune, John",
+    "repersent": "",
+    "city": "Pierre",
   },
   "S42": {
-    "name": "Tennessee"
+    "name": "Tennessee",
+    "senate": "Alexander, Lamar \nCorker, Bob",
+    "repersent": "",
+    "city": "Nashville",
+
   },
   "S43": {
-    "name": "Texas"
+    "name": "Texas",
+    "senate": "Cornyn, John \nCruz, Ted",
+    "repersent": "",
+    "city": "Austin",
   },
   "S44": {
-    "name": "Utah"
+    "name": "Utah",
+    "senate": "Hatch, Orrin G. \nLee, Mike ",
+    "repersent": "",
+    "city": "Salt Lake City",
   },
   "S45": {
-    "name": "Vermont"
+    "name": "Vermont",
+    "senate": "Leahy, Patrick J. \nSanders, Bernard",
+    "repersent": "",
+    "city": "Montpelier",
   },
   "S46": {
-    "name": "Virginia"
+    "name": "Virginia",
+    "senate": "Kaine, Tim \nWarner, Mark R.",
+    "repersent": "",
+    "city": "Richmond",
   },
   "S47": {
-    "name": "Washington"
+    "name": "Washington",
+    "senate": "Cantwell, Maria \nMurray, Patty",
+    "repersent": "",
+    "city": "Olympia",
   },
   "S48": {
-    "name": "West Virginia"
+    "name": "West Virginia",
+    "senate": "Capito, Shelley Moore \nManchin, Joe, III",
+    "repersent": "",
+    "city": "Charleston",
   },
   "S49": {
-    "name": "Wisconsin"
+    "name": "Wisconsin",
+    "senate": "Baldwin, Tammy \nJohnson, Ron",
+    "repersent": "",
+    "city": "Madison",
   },
   "S50": {
-    "name": "Wyoming"
+    "name": "Wyoming",
+    "senate": "Barrasso, John \nEnzi, Michael B.",
+    "repersent": "",
+    "city": "Cheyenne",
   }
 }
-
-
-Tennessee
-Texas
-Utah
-Vermont
-Virginia
-Washington
-West Virginia
-Wisconsin
-Wyoming

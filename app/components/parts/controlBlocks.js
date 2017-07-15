@@ -7,6 +7,8 @@ import {
   Image,
   Dimensions
 } from 'react-native'
+/* ControlBlocks manage the block which holds question and answers.
+It control the next and previous question. */
 const {width, height} = Dimensions.get('window')
 const ControlBlocks = (props) => {
   return (
