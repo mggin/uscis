@@ -6,21 +6,22 @@ import {
   Text,
   Image,
 } from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const ControlCard = (props) => {
   return (
     <View style={styles.row}>
       <TouchableOpacity onPress={() => props.previousCard()}
                         style={styles.back}>
-        <Image source={require('../../assets/uscis-back.png')}
-               resizeMode="cover"
-               style={styles.backImg}/>
+        <View style={styles.previousIcon}>
+              <Icon name="md-arrow-dropleft-circle" size={55} color="rgb(0, 102, 102)" />
+        </View>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => props.nextCard()}
                         style={styles.next}>
-        <Image source={require('../../assets/uscis-next.png')}
-               resizeMode="cover"
-               style={styles.nextImg}/>
+        <View style={styles.nextIcon}>
+          <Icon name="md-arrow-dropright-circle" size={55} color="rgb(0, 102, 102)" />
+        </View>
       </TouchableOpacity>
     </View>
   )
@@ -33,14 +34,14 @@ const styles=StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
   },
-  backImg: {
-    width: 40,
-    height: 40,
+  previousIcon: {
+    width: 60,
+    height: 60,
     // backgroundColor: 'white'
   },
-  nextImg: {
-    width: 40,
-    height: 40,
+  nextIcon: {
+    width: 60,
+    height: 60,
   }
 })
 

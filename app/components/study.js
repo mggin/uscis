@@ -91,7 +91,7 @@ class Study extends Component {
       <View style={styles.container}>
         <View style={[styles.cardContainer, {width: this.state.width, height: this.state.height/1.5}]}>
           <View style={styles.counter}>
-            <Text style={styles.counterTxt}>{this.state.index}/100</Text>
+            <Text style={styles.counterTxt}>{this.state.index + 1}/100</Text>
           </View>
           <Animatable.View style={styles.card}
                            animation={this.state.animation}

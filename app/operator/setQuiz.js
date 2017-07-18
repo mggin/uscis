@@ -15,13 +15,14 @@ export let correctChoices = 0
 function randomQuiz(quizQuantity) {
   // console.log('randomQuiz')
 
-  randomChoice()
   // console.log('he')
   // console.log(quizQuantity)
   // let setQuizQuantity = 0
   console.log(quizQuantity + 'from storage')
   var quiz = 0
-  if (quizQuantity == 25) {
+  if (quizQuantity == 10) {
+    quiz = 10
+  } else if (quizQuantity == 25) {
     quiz = 25
   } else if (quizQuantity == 50) {
     quiz = 50
@@ -38,9 +39,10 @@ function randomQuiz(quizQuantity) {
         numOfRandomQuiz.push(num)
     } else {}
   }
+
 }
 
-function randomChoice() {
+export function randomChoice() {
   // var listOfRandomChoice = [Math.floor((Math.random() * 100) + 1)]
   let condition = true
   while (condition) {

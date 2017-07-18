@@ -99,6 +99,7 @@ export default class Setting extends Component {
                      <Picker selectedValue={this.state.valueOfQuiz}
                              style={styles.picker}
                              onValueChange={(itemValue, itemIndex) => this.setState({valueOfQuiz: itemValue})}>
+                             <Picker.Item label="10" value="10" />
                              <Picker.Item label="25" value="25" />
                              <Picker.Item label="50" value="50" />
                      </Picker>

@@ -14,13 +14,15 @@ import {checkAnswer} from '../../operator/setQuiz'
 const {width, height} = Dimensions.get('window')
 const QuitBar = (props) => {
   return (
-    <TouchableOpacity style={styles.container}
-                       onPress={() => props.checkAnswer()}>
-      <Image source={require('../../assets/uscis-exit.png')}
+    <View style={styles.container}>
+      <TouchableOpacity onPress={() => props.show()}
+                        activeOpacity={0.7}>
+        <Image source={require('../../assets/uscis-exit.png')}
              resizeMode="cover"
              style={styles.quitImg}
              />
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   )
 }
 

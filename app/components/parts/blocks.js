@@ -8,12 +8,16 @@ import {
 } from 'react-native'
 
 import ControlBlocks from './controlBlocks'
-import {numOfRandomChoice, selectedChoices, selectedChoiceToCheck } from '../../operator/setQuiz'
+import QuitBar from './quitBar'
+import PopupDialog, { DialogTitle, SlideAnimation, DialogButton} from 'react-native-popup-dialog'
+import {setQuiz, numOfRandomChoice,randomChoice, selectedChoices, selectedChoiceToCheck } from '../../operator/setQuiz'
 
 const {height, width} = Dimensions.get('window')
 export default class Block extends Component{
   constructor(props) {
     super(props)
+    this.show = this.show.bind(this)
+    this.dismiss = this.dismiss.bind(this)
     this.state={
       height,
       width,
@@ -58,46 +62,81 @@ export default class Block extends Component{
     }
   }
 
+  show(){
+    this.popupQuit.show()
+  }
+  dismiss() {
+    this.popupQuit.dismiss()
+  }
+
   render() {
+    randomChoice()
+    console.log(this.props.quiz.C3)
     let index = this.props.index + 1 // to show question number
     let quiz = this.props.quiz.Q //
     const choices = [this.props.quiz.C1, this.props.quiz.C2, this.props.quiz.C3, this.props.quiz.C4]
+
     const randomChoices = [] // hold the arrary of randomChoices for answer
     for (let i = 0; i < choices.length; i++) {
       randomChoices.push(choices[numOfRandomChoice[i]])
     }
+    console.log(numOfRandomChoice)
 
     return (
       <View style={styles.container}>
-        <View style={styles.blockContainer}>
-          <View style={{margin: 5, padding: 5}}>
-            <Text style={styles.indexTxt}>QUESTION {index}</Text>
-          </View>
-          <View style={styles.ques}>
-            <Text style={styles.quesTxt}>{quiz}</Text>
-          </View>
-          <View style={[styles.box, {backgroundColor: this.state.color1}]}>
-            <TouchableOpacity onPress={() => this.setAnswer('C1',randomChoices[0] )}>
-              <Text style={styles.choiceTxt}>{randomChoices[0]}</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={[styles.box, {backgroundColor: this.state.color2}]}>
-            <TouchableOpacity onPress={() => this.setAnswer('C2', randomChoices[1])}>
-              <Text style={styles.choiceTxt}>{randomChoices[1]}</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={[styles.box, {backgroundColor: this.state.color3}]}>
-            <TouchableOpacity onPress={() => this.setAnswer('C3', randomChoices[2])}>
-              <Text style={styles.choiceTxt}>{randomChoices[2]}</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={[styles.box, {backgroundColor: this.state.color4}]}>
-            <TouchableOpacity onPress={() => this.setAnswer('C4', randomChoices[3])}>
-              <Text style={styles.choiceTxt}>{randomChoices[3]}</Text>
-            </TouchableOpacity>
-          </View>
+        <View style={{flex: 1}}>
+
+          <QuitBar show={this.show} dismiss={this.dismiss}/>
+            <View style={styles.blockContainer}>
+              <View style={{margin: 5, padding: 5}}>
+                <Text style={styles.indexTxt}>QUESTION {index}</Text>
+              </View>
+              <View style={styles.ques}>
+                <Text style={styles.quesTxt}>{quiz}</Text>
+              </View>
+              <View style={[styles.box, {backgroundColor: this.state.color1}]}>
+                <TouchableOpacity onPress={() => this.setAnswer('C1',randomChoices[0] )}>
+                  <Text style={styles.choiceTxt}>{randomChoices[0]}</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={[styles.box, {backgroundColor: this.state.color2}]}>
+                <TouchableOpacity onPress={() => this.setAnswer('C2', randomChoices[1])}>
+                  <Text style={styles.choiceTxt}>{randomChoices[1]}</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={[styles.box, {backgroundColor: this.state.color3}]}>
+                <TouchableOpacity onPress={() => this.setAnswer('C3', randomChoices[2])}>
+                  <Text style={styles.choiceTxt}>{randomChoices[2]}</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={[styles.box, {backgroundColor: this.state.color4}]}>
+                <TouchableOpacity onPress={() => this.setAnswer('C4', randomChoices[3])}>
+                  <Text style={styles.choiceTxt}>{randomChoices[3]}</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <ControlBlocks nextBlock={this.nextBlock.bind(this)} previousBlock={this.previousBlock.bind(this)}/>
+            <PopupDialog width={120} height={70}
+                        // dialogTitle={<DialogTitle title="EXIT" />}
+                        dialogStyle={styles.dialogStyle}
+                       //dismissOnTouchOutside={false}
+                       onDismissed={() => console.log('dismiss')}
+                       onShown={() => console.log('show')}
+                       //haveOverlay={false}
+                       //overlayOpacity={0.3}
+                       ref={(popupDialog) => {this.popupQuit = popupDialog}}>
+                        <View style={styles.popBox}>
+                          <TouchableOpacity style={styles.popItems}
+                                            activeOpacity={0.6}>
+                            <Text style={styles.popItemsTxt}>RESTART</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity style={styles.popItems}
+                                            activeOpacity={0.6}>
+                            <Text style={styles.popItemsTxt}>QUIT</Text>
+                          </TouchableOpacity>
+                        </View>
+          </PopupDialog>
         </View>
-        <ControlBlocks nextBlock={this.nextBlock.bind(this)} previousBlock={this.previousBlock.bind(this)}/>
       </View>
     )
   }
@@ -147,5 +186,28 @@ const styles=StyleSheet.create({
  },
  blockContainer: {
    flex: 1,
+ },
+ dialogStyle: {
+   borderRadius: 0,
+   backgroundColor: 'transparent'
+ },
+ popBox: {
+   flex: 1,
+   justifyContent: 'center',
+   alignItems: 'center',
+ },
+ popItems: {
+   width: 100,
+   borderWidth: StyleSheet.hairlineWidth,
+   borderRadius: 50,
+   padding: 10,
+   margin: 10,
+  backgroundColor: 'white'
+ },
+ popItemsTxt: {
+   textAlign: 'center',
+   fontFamily: 'Gill Sans',
+   fontSize: 17,
+   // color: 'white'
  }
 })

@@ -14,6 +14,7 @@ import Block from './parts/blocks'
 import Ads1 from './ads/ads1'
 import ControlBlocks from './parts/controlBlocks'
 import {listOfEnglishTest} from '../json/jsonObjects'
+import PopupDialog, { DialogTitle, SlideAnimation, DialogButton} from 'react-native-popup-dialog'
 import {setQuiz, listOfQuiz, numOfRandomQuiz, selectedChoices, checkAnswer, selectedChoiceToCheck} from '../operator/setQuiz'
 
 export default class Test extends Component {
@@ -23,6 +24,8 @@ export default class Test extends Component {
     this.previousBlock = this.previousBlock.bind(this)
     this.onSelect = this.onSelect.bind(this)
     this.checkAnswer = this.checkAnswer.bind(this)
+    this.showPop = this.showPop.bind(this)
+    this.dismissPop = this.dismissPop.bind(this)
     this.state={
       quiz: listOfEnglishTest[numOfRandomQuiz[0]],
       index: 0,
@@ -30,9 +33,8 @@ export default class Test extends Component {
     }
 
   }
-  componentDidMount() {
+  componentWillMount() {
     console.log('first')
-    var quizQuantity = 0
     AsyncStorage.getItem('@QU1Z', (err, result) => {
       // console.log(err)
       // quizQuantity = result
@@ -67,6 +69,12 @@ export default class Test extends Component {
   checkAnswer() {
     checkAnswer(selectedChoices)
   }
+  showPop() {
+    this.popupQuit.show()
+  }
+  dismissPop() {
+    this.popupQuit.dismiss()
+  }
 
   render() {
     // console.log(listOfQuiz[8]['C1'])
@@ -77,14 +85,19 @@ export default class Test extends Component {
       QuizBlock.push(block)
     }
     */
+    console.log(this.state.quiz)
     return (
       <View style={{flex: 1}}>
         <StatusBar backgroundColor="blue"
                    barStyle="light-content" />
-        <QuitBar checkAnswer={this.checkAnswer}/>
-        <Block quiz={this.state.quiz} selected={selectedChoices[this.state.index]}
-               index={this.state.index} onSelect={this.onSelect}
-               changes={this.state.change} nextBlock={this.nextBlock} previousBlock={this.previousBlock}/>
+                   
+
+          <Block quiz={this.state.quiz} selected={selectedChoices[this.state.index]}
+                 index={this.state.index} onSelect={this.onSelect}
+                 changes={this.state.change} nextBlock={this.nextBlock} previousBlock={this.previousBlock}/>
+
+
+
 
       </View>
     )
@@ -94,6 +107,11 @@ export default class Test extends Component {
 const styles=StyleSheet.create({
   block: {
     flex: 1,
+    backgroundColor: 'red',
+  },
+  popBox: {
+    width: 300,
+    height: 300,
     backgroundColor: 'red',
   }
 })

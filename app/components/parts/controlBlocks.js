@@ -9,21 +9,23 @@ import {
 } from 'react-native'
 /* ControlBlocks manage the block which holds question and answers.
 It control the next and previous question. */
+
+import Icon from 'react-native-vector-icons/Ionicons';
 const {width, height} = Dimensions.get('window')
 const ControlBlocks = (props) => {
   return (
     <View style={styles.row}>
       <TouchableOpacity onPress={() => props.previousBlock()}
                         style={styles.back}>
-        <Image source={require('../../assets/uscis-back.png')}
-               resizeMode="cover"
-               style={styles.backImg}/>
+          <View style={styles.nextIcon}>
+                <Icon name="md-arrow-dropleft-circle" size={55} color="rgb(102, 0, 51)" />
+          </View>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => props.nextBlock()}
                         style={styles.next}>
-        <Image source={require('../../assets/uscis-next.png')}
-               resizeMode="cover"
-               style={styles.nextImg}/>
+          <View style={styles.nextIcon}>
+                <Icon name="md-arrow-dropright-circle" size={55} color="rgb(102, 0, 51)" />
+          </View>
       </TouchableOpacity>
     </View>
   )
@@ -38,14 +40,14 @@ const styles=StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: '#ecf0f1'
   },
-  backImg: {
-    width: 40,
-    height: 40,
+  previousIcon: {
+    width: 60,
+    height: 60,
     // backgroundColor: 'white'
   },
-  nextImg: {
-    width: 40,
-    height: 40,
+  nextIcon: {
+    width: 60,
+    height: 60,
   }
 })
 
