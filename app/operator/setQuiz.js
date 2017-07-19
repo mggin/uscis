@@ -4,7 +4,7 @@ import {
   AsyncStorage,
 } from 'react-native'
 
-export const listOfQuiz = []
+export let listOfQuiz = []
 export const selectedChoices = []
 export const selectedChoiceToCheck = []
 export const numOfRandomChoice = [Math.floor((Math.random() * 4) + 0)]
@@ -20,11 +20,11 @@ function randomQuiz(quizQuantity) {
   // let setQuizQuantity = 0
   console.log(quizQuantity + 'from storage')
   var quiz = 0
-  if (quizQuantity == 10) {
+  if (quizQuantity == '10') {
     quiz = 10
-  } else if (quizQuantity == 25) {
+  } else if (quizQuantity == '25') {
     quiz = 25
-  } else if (quizQuantity == 50) {
+  } else if (quizQuantity == '50') {
     quiz = 50
   } else {}
   let condition = true
@@ -86,4 +86,21 @@ export function checkAnswer() {
    //console.log(selectedChoiceToCheck)
    //console.log(listOfCorrectAns)
    console.log('You have answered ' + correctChoices + ' right answer')
+}
+
+export function clearListOfQuiz() {
+  /*
+  for (let i = 0; i < listOfQuiz.length; i++) {
+    console.log(i)
+    listOfQuiz.splice(i, 1)
+  }
+  */
+  listOfQuiz.splice(0, listOfQuiz.length)
+  numOfRandomQuiz.splice(0, numOfRandomQuiz.length)
+  selectedChoices.splice(0, selectedChoices.length)
+  selectedChoiceToCheck.splice(0, selectedChoiceToCheck.length)
+  // listOfQuiz.splice(8, 1)
+  // console.log(listOfQuiz)
+  // listOfQuiz.push('hello')
+  // console.log(listOfQuiz)
 }

@@ -9,6 +9,7 @@ import {
 
 import ControlBlocks from './controlBlocks'
 import QuitBar from './quitBar'
+import {Actions, Scence} from 'react-native-router-flux'
 import PopupDialog, { DialogTitle, SlideAnimation, DialogButton} from 'react-native-popup-dialog'
 import {setQuiz, numOfRandomChoice,randomChoice, selectedChoices, selectedChoiceToCheck } from '../../operator/setQuiz'
 
@@ -68,10 +69,19 @@ export default class Block extends Component{
   dismiss() {
     this.popupQuit.dismiss()
   }
+  restartBtn() {
+    this.dismiss()
+    this.props.reset()
+    this.setAnswer()
+  }
+  quitBtn() {
+    this.show()
+    Actions.menu({type: 'back'})
+  }
 
   render() {
     randomChoice()
-    console.log(this.props.quiz.C3)
+    //console.log(this.props.quiz.C3)
     let index = this.props.index + 1 // to show question number
     let quiz = this.props.quiz.Q //
     const choices = [this.props.quiz.C1, this.props.quiz.C2, this.props.quiz.C3, this.props.quiz.C4]
@@ -127,11 +137,13 @@ export default class Block extends Component{
                        ref={(popupDialog) => {this.popupQuit = popupDialog}}>
                         <View style={styles.popBox}>
                           <TouchableOpacity style={styles.popItems}
-                                            activeOpacity={0.6}>
+                                            activeOpacity={0.6}
+                                            onPress={() => this.restartBtn()}>
                             <Text style={styles.popItemsTxt}>RESTART</Text>
                           </TouchableOpacity>
                           <TouchableOpacity style={styles.popItems}
-                                            activeOpacity={0.6}>
+                                            activeOpacity={0.6}
+                                            onPress={() => this.quitBtn()}>
                             <Text style={styles.popItemsTxt}>QUIT</Text>
                           </TouchableOpacity>
                         </View>

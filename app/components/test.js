@@ -15,7 +15,7 @@ import Ads1 from './ads/ads1'
 import ControlBlocks from './parts/controlBlocks'
 import {listOfEnglishTest} from '../json/jsonObjects'
 import PopupDialog, { DialogTitle, SlideAnimation, DialogButton} from 'react-native-popup-dialog'
-import {setQuiz, listOfQuiz, numOfRandomQuiz, selectedChoices, checkAnswer, selectedChoiceToCheck} from '../operator/setQuiz'
+import {clearListOfQuiz, setQuiz, listOfQuiz, numOfRandomQuiz, selectedChoices, checkAnswer, selectedChoiceToCheck} from '../operator/setQuiz'
 
 export default class Test extends Component {
   constructor(props) {
@@ -24,8 +24,7 @@ export default class Test extends Component {
     this.previousBlock = this.previousBlock.bind(this)
     this.onSelect = this.onSelect.bind(this)
     this.checkAnswer = this.checkAnswer.bind(this)
-    this.showPop = this.showPop.bind(this)
-    this.dismissPop = this.dismissPop.bind(this)
+    this.resetBlock = this.resetBlock.bind(this)
     this.state={
       quiz: listOfEnglishTest[numOfRandomQuiz[0]],
       index: 0,
@@ -35,27 +34,36 @@ export default class Test extends Component {
   }
   componentWillMount() {
     console.log('first')
-    AsyncStorage.getItem('@QU1Z', (err, result) => {
-      // console.log(err)
-      // quizQuantity = result
-      setQuiz(result)
-      // this.setState({quizQuantity: result})
-
-    })
+    this.getDataAndSet()
     // console.log(quizQuantity)
 
   }
 
-
+  getDataAndSet() {
+    AsyncStorage.getItem('@QU1Z', (err, result) => {
+      // console.log(err)
+      setQuiz(result)
+      this.setState({quizQuantity: result})
+      console.log(this.state.quizQuantity + 'quiz ')
+    })
+  }
 
   previousBlock() {
     this.state.index --
     this.setState({quiz: listOfQuiz[this.state.index]})
   }
-
   nextBlock() {
     this.state.index++
     this.setState({quiz: listOfQuiz[this.state.index]})
+  }
+  resetBlock() {
+    clearListOfQuiz()
+    //var out
+    //var ten = 10
+    setQuiz(this.state.quizQuantity)
+    //console.log('reset')
+    //console.log(listOfQuiz)
+    this.setState({quiz: listOfQuiz[0], index: 0})
   }
 
   /* assign the choice on the list in order to highlight the answer when
@@ -68,12 +76,6 @@ export default class Test extends Component {
   }
   checkAnswer() {
     checkAnswer(selectedChoices)
-  }
-  showPop() {
-    this.popupQuit.show()
-  }
-  dismissPop() {
-    this.popupQuit.dismiss()
   }
 
   render() {
@@ -90,10 +92,10 @@ export default class Test extends Component {
       <View style={{flex: 1}}>
         <StatusBar backgroundColor="blue"
                    barStyle="light-content" />
-                   
+
 
           <Block quiz={this.state.quiz} selected={selectedChoices[this.state.index]}
-                 index={this.state.index} onSelect={this.onSelect}
+                 index={this.state.index} onSelect={this.onSelect} reset={this.resetBlock}
                  changes={this.state.change} nextBlock={this.nextBlock} previousBlock={this.previousBlock}/>
 
 
