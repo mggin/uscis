@@ -18,7 +18,7 @@ function randomQuiz(quizQuantity) {
   // console.log('he')
   // console.log(quizQuantity)
   // let setQuizQuantity = 0
-  console.log(quizQuantity + 'from storage')
+  // console.log(quizQuantity + 'from storage')
   var quiz = 0
   if (quizQuantity == '10') {
     quiz = 10
@@ -53,11 +53,11 @@ export function randomChoice() {
         numOfRandomChoice.push(num)
     } else {}
   }
-  console.log(numOfRandomChoice)
+  //console.log(numOfRandomChoice)
 }
 
 export function setQuiz(num) {
-  console.log('second')
+  //console.log('second')
   randomQuiz(num)
   // checkAnswer()
   // console.log(numOfRandomQuiz)
@@ -82,10 +82,12 @@ export function checkAnswer() {
        correctChoices += 1
      }
    }
+
+   // return correctChoices
    // console.log('correc')
    //console.log(selectedChoiceToCheck)
    //console.log(listOfCorrectAns)
-   console.log('You have answered ' + correctChoices + ' right answer')
+   // console.log('You have answered ' + correctChoices + ' right answer')
 }
 
 export function clearListOfQuiz() {
@@ -99,6 +101,7 @@ export function clearListOfQuiz() {
   numOfRandomQuiz.splice(0, numOfRandomQuiz.length)
   selectedChoices.splice(0, selectedChoices.length)
   selectedChoiceToCheck.splice(0, selectedChoiceToCheck.length)
+  correctChoices = 0
   // listOfQuiz.splice(8, 1)
   // console.log(listOfQuiz)
   // listOfQuiz.push('hello')

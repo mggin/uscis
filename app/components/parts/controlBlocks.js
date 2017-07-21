@@ -14,19 +14,26 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const {width, height} = Dimensions.get('window')
 const ControlBlocks = (props) => {
   return (
-    <View style={styles.row}>
+    <View style={styles.row}>{ props.backBtn ? (
       <TouchableOpacity onPress={() => props.previousBlock()}
-                        style={styles.back}>
+                        activeOpacity={0.6}>
           <View style={styles.nextIcon}>
                 <Icon name="md-arrow-dropleft-circle" size={55} color="rgb(102, 0, 51)" />
           </View>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => props.nextBlock()}
-                        style={styles.next}>
-          <View style={styles.nextIcon}>
-                <Icon name="md-arrow-dropright-circle" size={55} color="rgb(102, 0, 51)" />
-          </View>
-      </TouchableOpacity>
+      </TouchableOpacity> ) : null}
+      { props.submitBtn ? (
+        <TouchableOpacity onPress={() => props.submit()}
+                          activeOpacity={0.6}
+                          style={styles.submit}>
+            <Text>SUBMIT</Text>
+        </TouchableOpacity> ) : null}
+      { props.nextBtn ? (
+        <TouchableOpacity onPress={() => props.nextBlock()}
+                          activeOpacity={0.6}>
+            <View style={styles.nextIcon}>
+                  <Icon name="md-arrow-dropright-circle" size={55} color="rgb(102, 0, 51)" />
+            </View>
+        </TouchableOpacity> ) : null}
     </View>
   )
 }
@@ -48,6 +55,14 @@ const styles=StyleSheet.create({
   nextIcon: {
     width: 60,
     height: 60,
+  },
+  submit: {
+    borderRadius: 10,
+    borderWidth: StyleSheet.hairlineWidth,
+    padding: 10,
+  },
+  submittxt: {
+    textAlign: 'center'
   }
 })
 

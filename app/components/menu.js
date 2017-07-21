@@ -14,10 +14,18 @@ import {
 } from 'react-native';
 
 import {Actions, Scenes} from 'react-native-router-flux'
+import {listOfQuiz, clearListOfQuiz} from '../operator/setQuiz'
 // import studyImage from './assets/uscis-study.png'
 
 export default class Menu extends Component {
+
+  componentWillMount() {
+     // clearListOfQuiz()
+  }
+
   render() {
+    console.log(listOfQuiz)
+    console.log('print listOfQuiz on menu')
     return (
       <View style={styles.container}>
         <View style={styles.row}>

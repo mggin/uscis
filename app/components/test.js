@@ -32,19 +32,27 @@ export default class Test extends Component {
     }
 
   }
-  componentWillMount() {
-    console.log('first')
+  componentDidMount() {
+    console.log('componentWillMount')
+    // this.resetBlock()
     this.getDataAndSet()
     // console.log(quizQuantity)
 
+  }
+  componentWillMount() {
+    clearListOfQuiz()
+    // setQuiz(10)
   }
 
   getDataAndSet() {
     AsyncStorage.getItem('@QU1Z', (err, result) => {
       // console.log(err)
+      // quizQuantity = result
       setQuiz(result)
+      console.log('run')
       this.setState({quizQuantity: result})
-      console.log(this.state.quizQuantity + 'quiz ')
+      // console.log(this.state.quizQuantity + 'quiz ')
+      // this.setState({quizQuantity: result})
     })
   }
 
@@ -59,7 +67,10 @@ export default class Test extends Component {
   resetBlock() {
     clearListOfQuiz()
     //var out
+
     //var ten = 10
+    //setQuiz(out)
+    //console.log(this.state.quizQuantity + 'quizQuantity')
     setQuiz(this.state.quizQuantity)
     //console.log('reset')
     //console.log(listOfQuiz)
@@ -87,7 +98,8 @@ export default class Test extends Component {
       QuizBlock.push(block)
     }
     */
-    console.log(this.state.quiz)
+    console.log(listOfQuiz)
+    console.log('print listOfQuiz on test')
     return (
       <View style={{flex: 1}}>
         <StatusBar backgroundColor="blue"

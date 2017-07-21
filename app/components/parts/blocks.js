@@ -11,37 +11,81 @@ import ControlBlocks from './controlBlocks'
 import QuitBar from './quitBar'
 import {Actions, Scence} from 'react-native-router-flux'
 import PopupDialog, { DialogTitle, SlideAnimation, DialogButton} from 'react-native-popup-dialog'
-import {setQuiz, numOfRandomChoice,randomChoice, selectedChoices, selectedChoiceToCheck } from '../../operator/setQuiz'
+import {listOfQuiz, checkAnswer, setQuiz, numOfRandomChoice,randomChoice, correctChoices, selectedChoices, selectedChoiceToCheck } from '../../operator/setQuiz'
 
 const {height, width} = Dimensions.get('window')
 export default class Block extends Component{
   constructor(props) {
     super(props)
-    this.show = this.show.bind(this)
-    this.dismiss = this.dismiss.bind(this)
+    this.showQuit = this.showQuit.bind(this)
+    this.dismissQuit = this.dismissQuit.bind(this)
+    this.showSubmit = this.showSubmit.bind(this)
+    this.dismissSubmit = this.dismissSubmit.bind(this)
+    this.submit = this.submit.bind(this)
     this.state={
       height,
       width,
       index: 0,
+      showNext: false,
+      showBack: false,
       color1: 'white',
       color2: 'white',
       color3: 'white',
-      color4: 'white'
+      color4: 'white',
+      correctChoices: 0,
+      submitBtn: false,
     }
 
   }
+  componentDidUpdate() {
+    //this.nextAndBackShow()
+  }
   componentDidMount() {
+    this.nextAndBackShow()
+    //this.props.reset()
     this.setAnswer(selectedChoices[this.props.index])
   }
+  shouldComponentUpdate() {
+    var update = true
+    console.log('console' + listOfQuiz.length)
+    if (listOfQuiz.length == 0) {
+      console.log('update')
+      update = false
+    }
+    console.log(update)
+    return update
+  }
   nextBlock() {
-    this.props.nextBlock()
     ++this.state.index
+    this.nextAndBackShow()
+    this.props.nextBlock()
     this.setAnswer(selectedChoices[this.state.index])
   }
   previousBlock() {
-    this.props.previousBlock()
     --this.state.index
+    this.nextAndBackShow()
+    this.props.previousBlock()
     this.setAnswer(selectedChoices[this.state.index])
+  }
+  nextAndBackShow() {
+    console.log(this.state.index + 'nextAndBackShow')
+    console.log(selectedChoices.length + 'selectedChoices')
+    if (this.state.index == 0) {
+      this.setState({showNext: true})
+    } else if (this.state.index == selectedChoices.length-1){
+      //console.log(selectedChoices.length + 'select')
+      this.setState({submitBtn: true, showNext: false, showBack: true})
+    } else {
+      this.setState({submitBtn: false, showNext: true, showBack: true})
+      // console.log('hello')
+    }
+    // this.setState({showNext: true, showBack: true})
+    // console.log(selectedChoices.length + 'select')
+  }
+  submit() {
+    checkAnswer(selectedChoices)
+    this.setState({correctChoices: correctChoices})
+    this.popupSubmit.show()
   }
   /* setAnswer takes user choices and change the color
   of choic boxes into different color */
@@ -63,26 +107,47 @@ export default class Block extends Component{
     }
   }
 
-  show(){
+  showQuit(){
     this.popupQuit.show()
   }
-  dismiss() {
+  dismissQuit() {
     this.popupQuit.dismiss()
   }
-  restartBtn() {
-    this.dismiss()
+  showSubmit() {
+    this.popupSubmit.show()
+  }
+  dismissSubmit() {
+    this.popupSubmit.dismiss()
+  }
+  restart() {
+    this.state.index = 0
+    this.setState({showNext: false, showBack: false, submitBtn: false})
+    this.nextAndBackShow()
+    this.dismissQuit()
     this.props.reset()
     this.setAnswer()
+    //this.setState({index: 0})
+    // this.nextAndBackShow()
+  }
+  retake() {
+    this.state.index = 0
+    this.setState({showNext: false, showBack: false, submitBtn: false})
+    this.nextAndBackShow()
+    this.dismissSubmit()
+    this.props.reset()
+    this.setAnswer()
+    // this.nextAndBackShow()
   }
   quitBtn() {
-    this.show()
-    Actions.menu({type: 'back'})
+    //this.restartBtn()
+    console.log(this.state.index + 'index')
+    Actions.menu()
   }
 
   render() {
     randomChoice()
     //console.log(this.props.quiz.C3)
-    let index = this.props.index + 1 // to show question number
+    let index = this.state.index + 1 // to show question number
     let quiz = this.props.quiz.Q //
     const choices = [this.props.quiz.C1, this.props.quiz.C2, this.props.quiz.C3, this.props.quiz.C4]
 
@@ -90,16 +155,17 @@ export default class Block extends Component{
     for (let i = 0; i < choices.length; i++) {
       randomChoices.push(choices[numOfRandomChoice[i]])
     }
-    console.log(numOfRandomChoice)
+    // console.log(numOfRandomChoice)
+
 
     return (
       <View style={styles.container}>
         <View style={{flex: 1}}>
 
-          <QuitBar show={this.show} dismiss={this.dismiss}/>
+          <QuitBar show={this.showQuit} dismiss={this.dismissQuit}/>
             <View style={styles.blockContainer}>
               <View style={{margin: 5, padding: 5}}>
-                <Text style={styles.indexTxt}>QUESTION {index}</Text>
+                <Text style={styles.indexTxt}>Question {index} of {selectedChoices.length}</Text>
               </View>
               <View style={styles.ques}>
                 <Text style={styles.quesTxt}>{quiz}</Text>
@@ -125,20 +191,22 @@ export default class Block extends Component{
                 </TouchableOpacity>
               </View>
             </View>
-            <ControlBlocks nextBlock={this.nextBlock.bind(this)} previousBlock={this.previousBlock.bind(this)}/>
+            <ControlBlocks nextBtn={this.state.showNext} backBtn={this.state.showBack} submit={this.submit}
+                           submitBtn={this.state.submitBtn}
+                           nextBlock={this.nextBlock.bind(this)} previousBlock={this.previousBlock.bind(this)}/>
             <PopupDialog width={120} height={70}
                         // dialogTitle={<DialogTitle title="EXIT" />}
                         dialogStyle={styles.dialogStyle}
                        //dismissOnTouchOutside={false}
-                       onDismissed={() => console.log('dismiss')}
-                       onShown={() => console.log('show')}
+                        // onDismissed={() => console.log('dismiss')}
+                        //onShown={() => console.log('show')}
                        //haveOverlay={false}
-                       //overlayOpacity={0.3}
+                       overlayOpacity={0.25}
                        ref={(popupDialog) => {this.popupQuit = popupDialog}}>
                         <View style={styles.popBox}>
                           <TouchableOpacity style={styles.popItems}
                                             activeOpacity={0.6}
-                                            onPress={() => this.restartBtn()}>
+                                            onPress={() => this.restart()}>
                             <Text style={styles.popItemsTxt}>RESTART</Text>
                           </TouchableOpacity>
                           <TouchableOpacity style={styles.popItems}
@@ -148,6 +216,32 @@ export default class Block extends Component{
                           </TouchableOpacity>
                         </View>
           </PopupDialog>
+          <PopupDialog width={350} height={400}
+                      // dialogTitle={<DialogTitle title="EXIT" />}
+                      dialogStyle={styles.progressView}
+                     dismissOnTouchOutside={false}
+                     //onDismissed={() => console.log('dismiss')}
+                     //onShown={() => console.log('show')}
+                     //haveOverlay={false}
+                     overlayOpacity={0.2}
+                     ref={(popupDialog) => {this.popupSubmit = popupDialog}}>
+                     <View style={styles.popBox}>
+                       <Text style={styles.progress}>You answered {this.state.correctChoices} of {selectedChoices.length} questions correctly</Text>
+                       <Text style={styles.percent}>{this.state.correctChoices/selectedChoices.length * 100}%</Text>
+                     </View>
+                      <View style={styles.popBox}>
+                        <TouchableOpacity style={styles.popItems}
+                                          activeOpacity={0.6}
+                                          onPress={() => this.retake()}>
+                          <Text style={styles.popItemsTxt}>RETAKE</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.popItems}
+                                          activeOpacity={0.6}
+                                          onPress={() => this.quitBtn()}>
+                          <Text style={styles.popItemsTxt}>MENU</Text>
+                        </TouchableOpacity>
+                      </View>
+        </PopupDialog>
         </View>
       </View>
     )
@@ -191,9 +285,9 @@ const styles=StyleSheet.create({
  },
  indexTxt: {
    textAlign: 'left',
-   fontSize: 14,
+   fontSize: 15,
    opacity: 0.9,
-   color: '#2c3e50',
+   color: '#34495e',
    fontFamily: 'Times New Roman'
  },
  blockContainer: {
@@ -221,5 +315,22 @@ const styles=StyleSheet.create({
    fontFamily: 'Gill Sans',
    fontSize: 17,
    // color: 'white'
+ },
+ progressView: {
+   borderRadius: 10,
+   backgroundColor: '#3498db'
+ },
+ progress: {
+   color: 'white',
+   fontSize: 18,
+   fontFamily: 'Gill Sans',
+ },
+ percent: {
+   color: 'white',
+   fontFamily: 'Gill Sans',
+   fontSize: 30,
+   padding: 10,
+   margin: 10
+
  }
 })
