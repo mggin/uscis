@@ -16,20 +16,20 @@ const ControlBlocks = (props) => {
   return (
     <View style={styles.row}>{ props.backBtn ? (
       <TouchableOpacity onPress={() => props.previousBlock()}
-                        activeOpacity={0.6}>
+                        activeOpacity={0.7}>
           <View style={styles.nextIcon}>
                 <Icon name="md-arrow-dropleft-circle" size={55} color="rgb(102, 0, 51)" />
           </View>
       </TouchableOpacity> ) : null}
       { props.submitBtn ? (
         <TouchableOpacity onPress={() => props.submit()}
-                          activeOpacity={0.6}
+                          activeOpacity={0.7}
                           style={styles.submit}>
             <Text>SUBMIT</Text>
         </TouchableOpacity> ) : null}
       { props.nextBtn ? (
         <TouchableOpacity onPress={() => props.nextBlock()}
-                          activeOpacity={0.6}>
+                          activeOpacity={0.7}>
             <View style={styles.nextIcon}>
                   <Icon name="md-arrow-dropright-circle" size={55} color="rgb(102, 0, 51)" />
             </View>

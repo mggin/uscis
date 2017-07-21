@@ -16,7 +16,7 @@ const QuitBar = (props) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => props.show()}
-                        activeOpacity={0.7}>
+                        activeOpacity={0.6}>
         <Image source={require('../../assets/uscis-exit.png')}
              resizeMode="cover"
              style={styles.quitImg}

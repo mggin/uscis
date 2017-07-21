@@ -95,8 +95,8 @@
     "index": 18,
   },
   "N20": {
-    "Q": "What is the supreme law of the land?",
-    "A": "the Constitution",
+    "Q": "Who is one of your state’s U.S. Senators now?",
+    "A": "",
     "index": 19,
   },
   "N21": {
@@ -110,8 +110,8 @@
     "index": 21,
   },
   "N23": {
-    "Q": "What is the supreme law of the land?",
-    "A": "the Constitution",
+    "Q": "Name your U.S. Representative.",
+    "A": "Answers will vary. [Residents of territories with nonvoting Delegates or Resident \n Commissioners may provide the name of that Delegate of Commissioner. Also acceptable \n is any statement that the territory has no (voting) Representatives in congress.]",
     "index": 22,
   },
   "N24": {
@@ -211,12 +211,12 @@
   },
   "N43": {
     "Q": "Who is the Governor of your state now?",
-    "A": "the Constitution",
+    "A": "",
     "index": 42,
   },
   "N44": {
     "Q": "What is the capital of your state?",
-    "A": "the Constitution",
+    "A": "",
     "index": 43,
   },
   "N45": {

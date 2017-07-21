@@ -9,8 +9,6 @@ import {
   StatusBar,
 } from 'react-native'
 
-// import QuizQuantity from './settings/quizQuantity'
-// import Location from './settings/location'
 import NavBar from './settings/navBar'
 import {states} from '../json/jsonObjects'
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -21,7 +19,7 @@ export default class Setting extends Component {
     super(props)
       this.state = {
         valueOfQuiz: '25',
-        valueOfLocation: 'Oklahoma',
+        valueOfLocation: 24,
         active: false,
       }
   }
@@ -31,10 +29,9 @@ export default class Setting extends Component {
       this.setState({valueOfQuiz: result})
     })
     AsyncStorage.getItem('@LOCATION', (err, result) => {
-      this.setState({valueOfLocation: result})
+      this.setState({valueOfLocation: parseInt(result)})
+      // console.log(result + 'locat')
     })
-
-    // console.log(this.state.valueOfLocation)
   }
 
   setQuantity() {
@@ -42,7 +39,7 @@ export default class Setting extends Component {
     console.log(this.state.valueOfQuiz)
     try {
       AsyncStorage.setItem('@QU1Z', this.state.valueOfQuiz);
-      AsyncStorage.setItem('@LOCATION', this.state.valueOfLocation);
+      AsyncStorage.setItem('@LOCATION', this.state.valueOfLocation.toString());
     } catch (error) {
    // Error saving data
     }
@@ -62,7 +59,7 @@ export default class Setting extends Component {
   render() {
     const listOfpickerStates = []
     for (let num = 0; num < states.length; num++) {
-      let singleState = <Picker.Item label={states[num].name} value= {states[num].name}/>
+      let singleState = <Picker.Item label={states[num].name} value= {num}/>
       listOfpickerStates.push(singleState)
     }
     return (
@@ -130,7 +127,7 @@ export default class Setting extends Component {
           </View>
           <Text style={styles.txtDesign}>SET LOCATION</Text>
           <View style={styles.valueBox}>
-            <Text style={styles.value}>{this.state.valueOfLocation}</Text>
+            <Text style={styles.value}>{states[this.state.valueOfLocation].name}</Text>
           </View>
         </TouchableOpacity>
       </View>

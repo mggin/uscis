@@ -338,17 +338,17 @@
   "N43": {
     "Q": "Who is the Governor of your state now?",
     "C1": "",
-    "C2": "",
-    "C3": "",
-    "C4": "",
+    "C2": "Donald Trump",
+    "C3": "Barack Obama",
+    "C4": "George W. Bush",
     "index": 42,
   },
   "N44": {
     "Q": "What is the capital of your state?",
-    "C1": "the Constitution",
-    "C2": "",
-    "C3": "",
-    "C4": "",
+    "C1": "",
+    "C2": "Chicago",
+    "C3": "Tulsa",
+    "C4": "Houston",
     "index": 43,
   },
   "N45": {
@@ -361,7 +361,7 @@
   },
   "N46": {
     "Q": "What is the political party of the President now?",
-    "C1": "Republican (Party)",
+    "C1": "Republican Party",
     "C2": "Independent Party",
     "C3": "Democratic Party",
     "C4": "Green Party",
@@ -529,10 +529,10 @@
   },
   "N67": {
     "Q": "The Federalist Papers supported the passage of the U.S. Constitution. Name one of the writers.",
-    "C1": "(James) Madison \n (Alexander) Hamilton \n (John) Jay \n Publius",
-    "C2": "choice2",
-    "C3": "choice3",
-    "C4": "choice4",
+    "C1": "James Madison",
+    "C2": "William Shakespeare",
+    "C3": "James Joyce",
+    "C4": "Obama",
     "index": 66,
   },
   "N68": {
@@ -697,10 +697,10 @@
   },
   "N88": {
     "Q": "Name one of the two longest rivers in the United States?",
-    "C1": "Missouri (River) \n Mississippi (River)",
-    "C2": "choice2",
-    "C3": "choice3",
-    "C4": "choice4",
+    "C1": "Mississippi (River)",
+    "C2": "Nile",
+    "C3": "Mekong",
+    "C4": "Ayeyarwaddy",
     "index": 87,
   },
   "N89": {

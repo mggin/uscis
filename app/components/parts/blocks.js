@@ -37,9 +37,6 @@ export default class Block extends Component{
     }
 
   }
-  componentDidUpdate() {
-    //this.nextAndBackShow()
-  }
   componentDidMount() {
     this.nextAndBackShow()
     //this.props.reset()
@@ -126,8 +123,6 @@ export default class Block extends Component{
     this.dismissQuit()
     this.props.reset()
     this.setAnswer()
-    //this.setState({index: 0})
-    // this.nextAndBackShow()
   }
   retake() {
     this.state.index = 0
@@ -136,7 +131,6 @@ export default class Block extends Component{
     this.dismissSubmit()
     this.props.reset()
     this.setAnswer()
-    // this.nextAndBackShow()
   }
   quitBtn() {
     //this.restartBtn()

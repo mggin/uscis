@@ -3,12 +3,14 @@ import {
   View,
   StyleSheet,
   Dimensions,
-  Text
+  Text,
+  AsyncStorage,
 } from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import Cards from './parts/cards'
 import ControlCard from './parts/controlCards'
 import NavBar from './settings/navBar'
+import {states} from '../json/jsonObjects'
 import {listOfEnglish, listOfZomi} from '../json/jsonObjects'
 // import sample from '../json/sample.js'
 const {height, width} = Dimensions.get('window')
@@ -28,18 +30,30 @@ class Study extends Component {
       width,
       animation: '',
       alignText: 'center',
+      numOfstate: undefined,
     }
   }
   componentDidMount() {
+    AsyncStorage.getItem('@LOCATION', (err, result) => {
+      this.setState({numOfstate: parseInt(result)})
+      // console.log(result + 'locat')
+    })
     this.setText()
     // this.defineCurrentCard()
   }
   nextCard() {
     this.state.front = true
     // console.log(this.state.card)
-    var i = this.state.currentCard[0].index + 1
-    console.log(i)
-    this.state.index = i
+    // var i = 0
+    if (this.state.currentCard[0].index == 99) {
+      this.state.index = 0
+    } else {
+      var i = this.state.currentCard[0].index + 1
+      this.state.index = i
+    }
+    // var i = this.state.currentCard[0].index + 1
+    // console.log(i)
+    // this.state.index = i
     this.setText()
     this.setState({animation: 'slideInRight'})
     // this.setState({animation: ''})
@@ -48,9 +62,15 @@ class Study extends Component {
   previousCard() {
     this.state.front = true
     // console.log(this.state.card)
-    var i = this.state.currentCard[0].index - 1
-    console.log(i)
-    this.state.index = i
+    // var i = this.state.currentCard[0].index - 1
+    // console.log(i)
+    if (this.state.currentCard[0].index == 0) {
+      this.state.index = 99
+    } else {
+      var i = this.state.currentCard[0].index - 1
+      this.state.index = i
+    }
+    // this.state.index = i
     this.setText()
     this.setState({animation: 'slideInLeft'})
   }
@@ -75,11 +95,28 @@ class Study extends Component {
   setText() {
     this.defineCurrentCard()
     if (this.state.front === true) {
+      if (this.state.index == 19) {
+        answer = states[this.state.numOfstate].senate
+      } else if (this.state.index == 42){
+        answer = states[this.state.numOfstate].governor
+      } else if (this.state.index == 43) {
+        answer = states[this.state.numOfstate].city
+      } else {
+        answer = this.state.currentCard[0].A
+      }
       question = this.state.currentCard[0].Q
-      answer = this.state.currentCard[0].A
+      // answer = this.state.currentCard[0].A
     } else if (this.state.front === false) {
+      if (this.state.index == 19) {
+        answer = states[this.state.numOfstate].senate
+      } else if (this.state.index == 42){
+        answer = states[this.state.numOfstate].governor
+      } else if (this.state.index == 43) {
+        answer = states[this.state.numOfstate].city
+      } else {
+        answer = this.state.currentCard[1].A
+      }
       question = this.state.currentCard[1].Q
-      answer = this.state.currentCard[1].A
     } else {}
     this.setState({question: question, answer: answer})
    console.log(this.state.front)

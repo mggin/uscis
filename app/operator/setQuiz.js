@@ -4,21 +4,18 @@ import {
   AsyncStorage,
 } from 'react-native'
 
-export let listOfQuiz = []
-export const selectedChoices = []
-export const selectedChoiceToCheck = []
+export let listOfQuiz = []      //randomly choose quizzes
+export const selectedChoices = []   //user selected choices with short form(raw data)
+export const selectedChoiceToCheck = [] //user selected choice which is acutual data from box
 export const numOfRandomChoice = [Math.floor((Math.random() * 4) + 0)]
 export const numOfRandomQuiz = [Math.floor((Math.random() * 99) + 0)]
-export let correctChoices = 0
+export let correctChoices = 0  // correct answers
 
 
+/*This generate the quizzes exact amount of quiz
+from listOfEnglishTest. It takes arg from user setting */
 function randomQuiz(quizQuantity) {
-  // console.log('randomQuiz')
-
-  // console.log('he')
-  // console.log(quizQuantity)
-  // let setQuizQuantity = 0
-  // console.log(quizQuantity + 'from storage')
+  //console.log('randomQuiz')
   var quiz = 0
   if (quizQuantity == '10') {
     quiz = 10
@@ -28,10 +25,8 @@ function randomQuiz(quizQuantity) {
     quiz = 50
   } else {}
   let condition = true
-  // console.log(listOfRandomQuiz)
   while (condition) {
      num = Math.floor((Math.random() * 99) + 0)
-    // console.log(num)
     console.log(quizQuantity)
     if (numOfRandomQuiz.length === quiz) {
       condition = false
@@ -42,8 +37,10 @@ function randomQuiz(quizQuantity) {
 
 }
 
+/* randomChoice choose the random number 1 to 4
+in order to rotate the choices's place */
 export function randomChoice() {
-  // var listOfRandomChoice = [Math.floor((Math.random() * 100) + 1)]
+  //console.log('randomChoice')
   let condition = true
   while (condition) {
     let num = Math.floor((Math.random() * 4) + 0)
@@ -53,57 +50,39 @@ export function randomChoice() {
         numOfRandomChoice.push(num)
     } else {}
   }
-  //console.log(numOfRandomChoice)
 }
 
 export function setQuiz(num) {
-  //console.log('second')
+  // console.log('setQuiz')
   randomQuiz(num)
-  // checkAnswer()
-  // console.log(numOfRandomQuiz)
   for (let i = 0; i < numOfRandomQuiz.length; i++) {
     // console.log(numOfRandomQuiz[i])
     listOfQuiz.push(listOfEnglishTest[numOfRandomQuiz[i]])
     selectedChoices.push('')
   }
-  //console.log(listOfEnglishTest)
-  //console.log(listOfQuiz)
 }
 
+/* extract answer from listOfEnglishTest and compare with
+user choices then give the accurate progress */
 export function checkAnswer() {
+   //console.log('checkAnswer')
    let listOfCorrectAns = []
-   // let cc = 0
    for (let i = 0; i < listOfEnglishTest.length; i++) {
      listOfCorrectAns.push(listOfEnglishTest[i].C1)
    }
    for (let choice of selectedChoiceToCheck) {
-     // console.log(choice)
      if (listOfCorrectAns.includes(choice)) {
        correctChoices += 1
      }
    }
-
-   // return correctChoices
-   // console.log('correc')
-   //console.log(selectedChoiceToCheck)
-   //console.log(listOfCorrectAns)
-   // console.log('You have answered ' + correctChoices + ' right answer')
 }
 
+/* clearListOfQuiz delete everything on current information
+about Quiz it contains everything regarding with quiz*/
 export function clearListOfQuiz() {
-  /*
-  for (let i = 0; i < listOfQuiz.length; i++) {
-    console.log(i)
-    listOfQuiz.splice(i, 1)
-  }
-  */
   listOfQuiz.splice(0, listOfQuiz.length)
   numOfRandomQuiz.splice(0, numOfRandomQuiz.length)
   selectedChoices.splice(0, selectedChoices.length)
   selectedChoiceToCheck.splice(0, selectedChoiceToCheck.length)
   correctChoices = 0
-  // listOfQuiz.splice(8, 1)
-  // console.log(listOfQuiz)
-  // listOfQuiz.push('hello')
-  // console.log(listOfQuiz)
 }
