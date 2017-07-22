@@ -6,6 +6,7 @@ import {
   Text,
   AsyncStorage,
   StatusBar,
+  Slider,
 } from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import Cards from './parts/cards'
@@ -21,6 +22,7 @@ class Study extends Component {
     this.flip = this.flip.bind(this)
     this.nextCard = this.nextCard.bind(this)
     this.previousCard = this.previousCard.bind(this)
+    this.slider = this.slider.bind(this)
     this.state={
       height,
       width,
@@ -72,7 +74,7 @@ class Study extends Component {
     } else if (this.state.front === false) {
       this.state.front = true
     } else {}
-    this.setState({textAlign: 'left'})
+    // this.setState({textAlign: 'left'})
     this.setText()
 
   }
@@ -111,6 +113,13 @@ class Study extends Component {
     this.setState({question: question, answer: answer})
     // console.log(this.state.front)
   }
+  slider(value) {
+     // this.setState({index: value})
+     // this.setText()
+     this.state.index = value
+     this.state.front = false
+     this.flip()
+  }
   render() {
     return (
     <View style={{flex: 1}}>
@@ -118,8 +127,20 @@ class Study extends Component {
       <NavBar />
       <View style={styles.container}>
         <View style={[styles.cardContainer, {width: this.state.width, height: this.state.height/1.4}]}>
+          <View style={{flexDirection: 'row', margin: 10}}>
           <View style={styles.counter}>
             <Text style={styles.counterTxt}>{this.state.index + 1}/100</Text>
+          </View>
+          <View style={styles.slider}>
+            <Slider minimumTrackTintColor="rgb(0, 102, 102)"
+                    step={1}
+                    maximumValue={99}
+                    style={styles.sliderSty}
+                    //thumbImage={require('../assets/thumb.png')}
+                    // trackImage={require('../assets/track.png')}
+                    onValueChange={this.slider}
+                    onSlidingComplete={this.slider}/>
+          </View>
           </View>
           <Animatable.View style={styles.card}
                            animation={this.state.animation}
@@ -178,7 +199,16 @@ const styles=StyleSheet.create({
     },
     counterTxt: {
       color: 'rgb(0, 102, 102)',
-      fontFamily: 'Times New Roman'
+      fontFamily: 'Times New Roman',
+    },
+    slider: {
+      flex: 4,
+      marginLeft: 10,
+      marginRight: 10,
+      marginBottom: 5,
+    },
+    sliderSty: {
+      // borderColor: 'red'
     }
 })
 
