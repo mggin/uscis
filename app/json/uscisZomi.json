@@ -95,8 +95,8 @@
     "index": 18,
   },
   "N20": {
-    "Q": "What is the supreme law of the land?",
-    "A": "the Constitution",
+    "Q": "Tulaitak in no Pyine (State) ah Hluttaw (Senator)amat khat kua hiam? ",
+    "A": "",
     "index": 19,
   },
   "N21": {
@@ -136,12 +136,12 @@
   },
   "N28": {
     "Q": "Tulaitak United States ii President (Thamada) min kua hiam?",
-    "A": "Donald J. Trump \n Donald Trump \n Trump",
+    "A": "Donald J. Trump",
     "index": 27,
   },
   "N29": {
     "Q": "Tulaitak United States ii Vice President (Thamada azom pa) min bang hiam? ",
-    "A": "Michael R. Pence \n Mike Pence \n Pence",
+    "A": "Michael R. Pence",
     "index": 28,
   },
   "N30": {
@@ -226,12 +226,12 @@
   },
   "N46": {
     "Q": "Tu laitak aa President pa ii naingnganzi party min bang hiam?",
-    "A": "Republican (Party)",
+    "A": "Republican Party",
     "index": 45,
   },
   "N47": {
     "Q": "Gambup Hlutdaw Okkathah kua hiam?",
-    "A": "Paul D. Ryan \n (Paul) Ryan",
+    "A": "Paul D. Ryan",
     "index": 46,
   },
   "N48": {
@@ -306,7 +306,7 @@
   },
   "N62": {
     "Q": "Suahtaakna Thupulakkhiat kua in at ahihiam?",
-    "A": "(Thomas) Jefferson",
+    "A": "Thomas Jefferson",
     "index": 61,
   },
   "N63": {
@@ -331,7 +331,7 @@
   },
   "N67": {
     "Q": "Gamki-ukna Thukhunpi sungah Federal tawh ki-ukna ding apiangsak lai-geelte lak ah khat min gen in.",
-    "A": "(James) Madison \n (Alexander) Hamilton \n (John) Jay \n Publius",
+    "A": "James Madison \n Alexander Hamilton \n John Jay \n Publius",
     "index": 66,
   },
   "N68": {
@@ -341,12 +341,12 @@
   },
   "N69": {
     "Q": "“Ih gam ii pa” kua hiam?",
-    "A": "(George) Washington",
+    "A": "George Washington",
     "index": 68,
   },
   "N70": {
     "Q": "President masa pen kua hiam?",
-    "A": "(George) Washington",
+    "A": "George Washington",
     "index": 69,
   },
   "N71": {
@@ -391,12 +391,12 @@
   },
   "N79": {
     "Q": "Leitung Galpi Kido Masa hun lai in President kua ahi hiam?",
-    "A": "(Woodrow) Wilson",
+    "A": "Woodrow Wilson",
     "index": 78,
   },
   "N80": {
     "Q": "Donghtuah Lianpi Hun leh Leitung Galpi Nihna kido hun in President kua ahi hiam?",
-    "A": "(Franklin) Roosevelt",
+    "A": "Franklin Roosevelt",
     "index": 79,
   },
   "N81": {
@@ -436,17 +436,17 @@
   },
   "N88": {
     "Q": "United States gam ah a sau penpen gunpi nih lak ah khat min gen in. ",
-    "A": "Missouri (Gun) \n Mississippi (Gun)",
+    "A": "Missouri Gun \n or \n Mississippi Gun",
     "index": 87,
   },
   "N89": {
     "Q": "United States ii nitumna lam ah om tuipi bang hiam?",
-    "A": "Pacific (Tuipi)",
+    "A": "Pacific Tuipi",
     "index": 88,
   },
   "N90": {
     "Q": "United States ii nisuahna lam ah om tuipi banghiam?",
-    "A": "Atlantic (Tuipi)",
+    "A": "Atlantic Tuipi",
     "index": 89,
   },
   "N91": {
@@ -471,7 +471,7 @@
   },
   "N95": {
     "Q": "Suahtakna milimpi koi ah om hiam?",
-    "A": "New York (Tembaw kholna ah) \n Liberty Tuikulh tungah",
+    "A": "New York Tembaw kholna ah \n Liberty Tuikulh tungah",
     "index": 94,
   },
   "N96": {

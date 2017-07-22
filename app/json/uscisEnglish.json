@@ -111,7 +111,7 @@
   },
   "N23": {
     "Q": "Name your U.S. Representative.",
-    "A": "Answers will vary. [Residents of territories with nonvoting Delegates or Resident \n Commissioners may provide the name of that Delegate of Commissioner. Also acceptable \n is any statement that the territory has no (voting) Representatives in congress.]",
+    "A": "Answers will vary. [Residents of territories with nonvoting Delegates or Resident \n Commissioners may provide the name of that Delegate of Commissioner. \n Also acceptable is any statement that the territory has no (voting) Representatives in congress.]",
     "index": 22,
   },
   "N24": {
@@ -136,12 +136,12 @@
   },
   "N28": {
     "Q": "What is the name of the President of the United States now?",
-    "A": "Donald J. Trump \n Donald Trump \n Trump",
+    "A": "Donald J. Trump",
     "index": 27,
   },
   "N29": {
     "Q": "What is the name of the Vice President of the United States now?",
-    "A": "Michael R. Pence \n Mike Pence \n Pence",
+    "A": "Michael R. Pence",
     "index": 28,
   },
   "N30": {
@@ -226,12 +226,12 @@
   },
   "N46": {
     "Q": "What is the political party of the President now?",
-    "A": "Republican (Party)",
+    "A": "Republican Party",
     "index": 45,
   },
   "N47": {
     "Q": "What is the name of the Speaker of the House of Representatives now?",
-    "A": "Paul D. Ryan \n (Paul) Ryan",
+    "A": "Paul D. Ryan",
     "index": 46,
   },
   "N48": {
@@ -296,7 +296,7 @@
   },
   "N60": {
     "Q": "What group of people was taken to America and sold as slaves?",
-    "A": "Africans \n People from Africa",
+    "A": "Africans",
     "index": 59,
   },
   "N61": {
@@ -306,7 +306,7 @@
   },
   "N62": {
     "Q": "Who wrote the Declaration of Independence?",
-    "A": "(Thomas) Jefferson",
+    "A": "Thomas Jefferson",
     "index": 61,
   },
   "N63": {
@@ -331,7 +331,7 @@
   },
   "N67": {
     "Q": "The Federalist Papers supported the passage of the U.S. Constitution. Name one of the writers.",
-    "A": "(James) Madison \n (Alexander) Hamilton \n (John) Jay \n Publius",
+    "A": "James Madison \n Alexander Hamilton \n John Jay \n Publius",
     "index": 66,
   },
   "N68": {
@@ -341,17 +341,17 @@
   },
   "N69": {
     "Q": "Who is the “Father of Our Country”?",
-    "A": "(George) Washington",
+    "A": "George Washington",
     "index": 68,
   },
   "N70": {
     "Q": "Who was the first President?",
-    "A": "(George) Washington",
+    "A": "George Washington",
     "index": 69,
   },
   "N71": {
     "Q": "What territory did the United States buy from France in 1803?",
-    "A": "The Louisiana Territory \n Louisiana",
+    "A": "The Louisiana Territory \n or \n Louisiana",
     "index": 70,
   },
   "N72": {
@@ -361,7 +361,7 @@
   },
   "N73": {
     "Q": "Name the U.S. war between the North and the South.",
-    "A": "The Civil War \n War between the States",
+    "A": "The Civil War \n or \n War between the States",
     "index": 72,
   },
   "N74": {
@@ -371,7 +371,7 @@
   },
   "N75": {
     "Q": "What was one important thing that Abraham Lincoln did?",
-    "A": "freed the slaves (Emancipation Proclamation) \n Saved (or preserved) the Union \n Led the United States during the Civil War",
+    "A": "Freed the slaves (Emancipation Proclamation) \n Saved (or preserved) the Union \n Led the United States during the Civil War",
     "index": 74,
   },
   "N76": {
@@ -391,12 +391,12 @@
   },
   "N79": {
     "Q": " Who was President during World War I?",
-    "A": "(Woodrow) Wilson",
+    "A": "Woodrow Wilson",
     "index": 78,
   },
   "N80": {
     "Q": "Who was President during the Great Depression and World War II?",
-    "A": "(Franklin) Roosevelt",
+    "A": "Franklin Roosevelt",
     "index": 79,
   },
   "N81": {
@@ -441,12 +441,12 @@
   },
   "N89": {
     "Q": "What ocean is on the West Coast of the United States?",
-    "A": "Pacific (Ocean)",
+    "A": "Pacific Ocean",
     "index": 88,
   },
   "N90": {
     "Q": "What ocean is on the East Coast of the United States?",
-    "A": "Atlantic (Ocean)",
+    "A": "Atlantic Ocean",
     "index": 89,
   },
   "N91": {
@@ -471,7 +471,7 @@
   },
   "N95": {
     "Q": " Where is the Statue of Liberty?",
-    "A": "New York (Harbor) \n Liberty Island",
+    "A": "New York Harbor \n Liberty Island",
     "index": 94,
   },
   "N96": {

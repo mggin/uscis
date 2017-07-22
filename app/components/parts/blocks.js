@@ -195,7 +195,7 @@ export default class Block extends Component{
                         // onDismissed={() => console.log('dismiss')}
                         //onShown={() => console.log('show')}
                        //haveOverlay={false}
-                       overlayOpacity={0.25}
+                       overlayOpacity={0.7}
                        ref={(popupDialog) => {this.popupQuit = popupDialog}}>
                         <View style={styles.popBox}>
                           <TouchableOpacity style={styles.popItems}
@@ -210,17 +210,18 @@ export default class Block extends Component{
                           </TouchableOpacity>
                         </View>
           </PopupDialog>
-          <PopupDialog width={350} height={400}
+          <PopupDialog width={350} height={350}
                       // dialogTitle={<DialogTitle title="EXIT" />}
                       dialogStyle={styles.progressView}
                      dismissOnTouchOutside={false}
                      //onDismissed={() => console.log('dismiss')}
                      //onShown={() => console.log('show')}
                      //haveOverlay={false}
-                     overlayOpacity={0.2}
+                     overlayOpacity={0.7}
                      ref={(popupDialog) => {this.popupSubmit = popupDialog}}>
                      <View style={styles.popBox}>
                        <Text style={styles.progress}>You answered {this.state.correctChoices} of {selectedChoices.length} questions correctly</Text>
+                       <Text style={styles.percent}>SCORE</Text>
                        <Text style={styles.percent}>{this.state.correctChoices/selectedChoices.length * 100}%</Text>
                      </View>
                       <View style={styles.popBox}>
@@ -300,31 +301,34 @@ const styles=StyleSheet.create({
    width: 100,
    borderWidth: StyleSheet.hairlineWidth,
    borderRadius: 50,
+   borderColor: 'rgb(102, 0, 51)',
    padding: 10,
    margin: 10,
   backgroundColor: 'white'
  },
  popItemsTxt: {
    textAlign: 'center',
-   fontFamily: 'Gill Sans',
+   fontFamily: 'Optima',
    fontSize: 17,
-   // color: 'white'
+   color: 'rgb(102, 0, 51)'
  },
  progressView: {
    borderRadius: 10,
-   backgroundColor: '#3498db'
+   backgroundColor: 'rgb(102, 0, 51)'
  },
  progress: {
    color: 'white',
    fontSize: 18,
-   fontFamily: 'Gill Sans',
+   fontFamily: 'Times New Roman',
+   marginBottom: 15,
+   marginTop: 20
  },
  percent: {
    color: 'white',
-   fontFamily: 'Gill Sans',
+   fontFamily: 'Optima-Bold',
    fontSize: 30,
-   padding: 10,
-   margin: 10
+   // padding: 10,
+   // margin: 10
 
  }
 })

@@ -72,7 +72,7 @@ export default class Setting extends Component {
                      onDismissed={this.setQuantity()}
                      onShown={() => this.setState({active: true})}
                      //haveOverlay={false}
-                     //overlayOpacity={0.3}
+                     overlayOpacity={0.5}
                      ref={(popupDialog) => { this.popupOfLocation = popupDialog}}>
                      <Picker selectedValue={this.state.valueOfLocation}
                              style={styles.picker}
@@ -91,7 +91,7 @@ export default class Setting extends Component {
                      onDismissed={() => this.setQuantity()}
                      onShown={() => this.setState({active: true})}
                      //haveOverlay={false}
-                     //overlayOpacity={0.3}
+                     overlayOpacity={0.5}
                      ref={(popupDialog) => { this.popupOfQuiz = popupDialog}}>
                      <Picker selectedValue={this.state.valueOfQuiz}
                              style={styles.picker}

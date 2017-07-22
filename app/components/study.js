@@ -5,6 +5,7 @@ import {
   Dimensions,
   Text,
   AsyncStorage,
+  StatusBar,
 } from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import Cards from './parts/cards'
@@ -21,60 +22,50 @@ class Study extends Component {
     this.nextCard = this.nextCard.bind(this)
     this.previousCard = this.previousCard.bind(this)
     this.state={
-      english: "",
-      zomi: "",
+      height,
+      width,
       front: true,
       index: 0,
       currentCard: [],
-      height,
-      width,
       animation: '',
-      alignText: 'center',
       numOfstate: undefined,
     }
   }
   componentDidMount() {
     AsyncStorage.getItem('@LOCATION', (err, result) => {
       this.setState({numOfstate: parseInt(result)})
-      // console.log(result + 'locat')
     })
     this.setText()
-    // this.defineCurrentCard()
   }
+  /* nextCard defines the question what come after the
+  current question. It has the same functionality as
+  previousCard does but a few implemention would be
+  different */
   nextCard() {
     this.state.front = true
-    // console.log(this.state.card)
-    // var i = 0
     if (this.state.currentCard[0].index == 99) {
       this.state.index = 0
     } else {
       var i = this.state.currentCard[0].index + 1
       this.state.index = i
     }
-    // var i = this.state.currentCard[0].index + 1
-    // console.log(i)
-    // this.state.index = i
     this.setText()
     this.setState({animation: 'slideInRight'})
-    // this.setState({animation: ''})
 
   }
   previousCard() {
     this.state.front = true
-    // console.log(this.state.card)
-    // var i = this.state.currentCard[0].index - 1
-    // console.log(i)
     if (this.state.currentCard[0].index == 0) {
       this.state.index = 99
     } else {
       var i = this.state.currentCard[0].index - 1
       this.state.index = i
     }
-    // this.state.index = i
     this.setText()
     this.setState({animation: 'slideInLeft'})
   }
 
+/* flip switches the english to zomi */
   flip() {
     if (this.state.front === true) {
       this.state.front = false
@@ -85,12 +76,11 @@ class Study extends Component {
     this.setText()
 
   }
+
   defineCurrentCard() {
     var card = [listOfEnglish[this.state.index], listOfZomi[this.state.index]]
     this.state.currentCard = card
-    // this.setState({currentCard: card})
-    console.log(this.state.currentCard)
-    // this.state.currentCard = card
+    // console.log(this.state.currentCard)
   }
   setText() {
     this.defineCurrentCard()
@@ -119,14 +109,15 @@ class Study extends Component {
       question = this.state.currentCard[1].Q
     } else {}
     this.setState({question: question, answer: answer})
-   console.log(this.state.front)
+    // console.log(this.state.front)
   }
   render() {
     return (
     <View style={{flex: 1}}>
+      <StatusBar barStyle="light-content"/>
       <NavBar />
       <View style={styles.container}>
-        <View style={[styles.cardContainer, {width: this.state.width, height: this.state.height/1.5}]}>
+        <View style={[styles.cardContainer, {width: this.state.width, height: this.state.height/1.4}]}>
           <View style={styles.counter}>
             <Text style={styles.counterTxt}>{this.state.index + 1}/100</Text>
           </View>
@@ -137,8 +128,6 @@ class Study extends Component {
             <Cards flip={this.flip}
                    question={this.state.question}
                    answer={this.state.answer}
-                   // alignText={this.state.alignText}
-                  // zomi={this.state.zomi}
                  />
           </Animatable.View>
           <View style={styles.controlCard}>
@@ -166,26 +155,29 @@ const styles=StyleSheet.create({
     card: {
       flex: 6,
       backgroundColor: '#ecf0f1',
-      // borderRadius: 5,
+      borderRadius: 5,
       borderWidth: StyleSheet.hairlineWidth,
+      borderColor: '#7f8c8d',
       margin: 10,
     },
     controlCard: {
+      marginTop: 10,
       flex: 1,
-      // backgroundColor: 'red'
     },
     counter: {
-      backgroundColor: 'rgb(0, 102, 102)',
-      borderRadius: 20,
+      backgroundColor: 'transparent',
+      borderRadius: 70,
       marginLeft: 10,
-      marginBottom: 10,
-      padding: 5,
-      width: 100,
+      marginBottom: 5,
+      padding: 7,
+      width: 70,
       justifyContent: 'center',
       alignItems: 'center',
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: 'rgb(0, 102, 102)'
     },
     counterTxt: {
-      color: 'white',
+      color: 'rgb(0, 102, 102)',
       fontFamily: 'Times New Roman'
     }
 })

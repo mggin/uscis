@@ -11,7 +11,7 @@ const {width, height} = Dimensions.get('window')
 const Card = (props) => {
   return (
     <TouchableOpacity onPress={() => props.flip()}
-                      activeOpacity={0.7}
+                      activeOpacity={0.8}
                       style={styles.container}>
           <View style={styles.topBar}>
             <Text style={styles.quesSty}>{props.question}</Text>
@@ -33,6 +33,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(0, 102, 102)',
     justifyContent: 'center',
     alignItems: 'center',
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: '#7f8c8d',
   },
   bottomBar: {
     flex: 6,
@@ -41,6 +45,7 @@ const styles = StyleSheet.create({
   },
   quesSty: {
     textAlign: 'center',
+    //lineHeight: 3,
     color: '#ecf0f1',
     fontFamily: 'Times New Roman',
     fontSize: 19,
@@ -54,6 +59,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Times New Roman',
     opacity: 9,
     fontSize: 18,
+    lineHeight: 25,
   }
 
 })

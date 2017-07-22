@@ -46,15 +46,18 @@ export const listOfZomi =   [ uscisZomi.N1, uscisZomi.N2, uscisZomi.N3, uscisZom
                               uscisZomi.N91, uscisZomi.N92, uscisZomi.N93, uscisZomi.N94, uscisZomi.N95,
                               uscisZomi.N96, uscisZomi.N97, uscisZomi.N98, uscisZomi.N99, uscisZomi.N100]
 
+
+/* listOfEnglishTest doesn't contian question 20, 23, 43 and 44
+for logic reasons. It might able to implement next version */
 export const listOfEnglishTest =  [ uscisEnglishTest.N1, uscisEnglishTest.N2, uscisEnglishTest.N3, uscisEnglishTest.N4, uscisEnglishTest.N5,
                                     uscisEnglishTest.N6, uscisEnglishTest.N7, uscisEnglishTest.N8, uscisEnglishTest.N9, uscisEnglishTest.N10,
                                     uscisEnglishTest.N11, uscisEnglishTest.N12, uscisEnglishTest.N13, uscisEnglishTest.N14, uscisEnglishTest.N15,
-                                    uscisEnglishTest.N16, uscisEnglishTest.N17, uscisEnglishTest.N18, uscisEnglishTest.N19, uscisEnglishTest.N20,
-                                    uscisEnglishTest.N21, uscisEnglishTest.N22, uscisEnglishTest.N23, uscisEnglishTest.N24, uscisEnglishTest.N25,
+                                    uscisEnglishTest.N16, uscisEnglishTest.N17, uscisEnglishTest.N18, uscisEnglishTest.N19,
+                                    uscisEnglishTest.N21, uscisEnglishTest.N22, uscisEnglishTest.N24, uscisEnglishTest.N25,
                                     uscisEnglishTest.N26, uscisEnglishTest.N27, uscisEnglishTest.N28, uscisEnglishTest.N29, uscisEnglishTest.N30,
                                     uscisEnglishTest.N31, uscisEnglishTest.N32, uscisEnglishTest.N33, uscisEnglishTest.N34, uscisEnglishTest.N35,
                                     uscisEnglishTest.N36, uscisEnglishTest.N37, uscisEnglishTest.N38, uscisEnglishTest.N39, uscisEnglishTest.N40,
-                                    uscisEnglishTest.N41, uscisEnglishTest.N42, uscisEnglishTest.N43, uscisEnglishTest.N44, uscisEnglishTest.N45,
+                                    uscisEnglishTest.N41, uscisEnglishTest.N42, uscisEnglishTest.N45,
                                     uscisEnglishTest.N46, uscisEnglishTest.N47, uscisEnglishTest.N48, uscisEnglishTest.N49, uscisEnglishTest.N50,
                                     uscisEnglishTest.N51, uscisEnglishTest.N52, uscisEnglishTest.N53, uscisEnglishTest.N54, uscisEnglishTest.N55,
                                     uscisEnglishTest.N66, uscisEnglishTest.N57, uscisEnglishTest.N58, uscisEnglishTest.N59, uscisEnglishTest.N60,
