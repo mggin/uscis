@@ -22,15 +22,18 @@ class Study extends Component {
     this.flip = this.flip.bind(this)
     this.nextCard = this.nextCard.bind(this)
     this.previousCard = this.previousCard.bind(this)
-    this.slider = this.slider.bind(this)
+    this.sliderComplete = this.sliderComplete.bind(this)
+    this.sliderValueChange = this.sliderValueChange.bind(this)
     this.state={
       height,
       width,
       front: true,
       index: 0,
+      cardNum: 0,
       currentCard: [],
       animation: '',
       numOfstate: undefined,
+      sliderValue: 0,
     }
   }
   componentDidMount() {
@@ -47,9 +50,11 @@ class Study extends Component {
     this.state.front = true
     if (this.state.currentCard[0].index == 99) {
       this.state.index = 0
+      this.state.sliderValue = 0
     } else {
       var i = this.state.currentCard[0].index + 1
       this.state.index = i
+      this.state.sliderValue += 1
     }
     this.setText()
     this.setState({animation: 'slideInRight'})
@@ -59,9 +64,11 @@ class Study extends Component {
     this.state.front = true
     if (this.state.currentCard[0].index == 0) {
       this.state.index = 99
+      this.state.sliderValue = 99
     } else {
       var i = this.state.currentCard[0].index - 1
       this.state.index = i
+        this.state.sliderValue -= 1
     }
     this.setText()
     this.setState({animation: 'slideInLeft'})
@@ -113,21 +120,34 @@ class Study extends Component {
     this.setState({question: question, answer: answer})
     // console.log(this.state.front)
   }
-  slider(value) {
+  sliderComplete(value) {
      // this.setState({index: value})
      // this.setText()
-     this.state.index = value
+     this.state.sliderValue = value
      this.state.front = false
      this.flip()
+     console.log(this.state.sliderValue)
+     //this.setText()
+  }
+  sliderValueChange(value) {
+    //this.state.index = value
+    //this.state.cardNum = value
+    //this.state.sliderValue = value
+    this.setState({index: value})
+    this.state.front = false
+    this.flip()
+    //console.log(this.state.sliderValue)
+    //this.state.s
   }
   render() {
+    var cardNum = this.state.cardNum
     return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, backgroundColor: '#bdc3c7'}}>
       <StatusBar barStyle="light-content"/>
       <NavBar />
       <View style={styles.container}>
         <View style={[styles.cardContainer, {width: this.state.width, height: this.state.height/1.4}]}>
-          <View style={{flexDirection: 'row', margin: 10}}>
+          <View style={{flexDirection: 'row', margin: 10, flex: 0.7}}>
           <View style={styles.counter}>
             <Text style={styles.counterTxt}>{this.state.index + 1}/100</Text>
           </View>
@@ -135,11 +155,15 @@ class Study extends Component {
             <Slider minimumTrackTintColor="rgb(0, 102, 102)"
                     step={1}
                     maximumValue={99}
+                    minimumValue={0}
                     style={styles.sliderSty}
+                    value={this.state.sliderValue}
+                    // disabled={true}
                     //thumbImage={require('../assets/thumb.png')}
                     // trackImage={require('../assets/track.png')}
-                    onValueChange={this.slider}
-                    onSlidingComplete={this.slider}/>
+                    onValueChange={this.sliderValueChange}
+                    onSlidingComplete={this.sliderComplete}
+                  />
           </View>
           </View>
           <Animatable.View style={styles.card}
@@ -166,11 +190,13 @@ class Study extends Component {
 const styles=StyleSheet.create({
     container: {
       flex: 1,
+      marginTop: 15,
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#bdc3c7'
     },
     cardContainer: {
+      flex: 1,
       // backgroundColor: 'red',
     },
     card: {
@@ -186,6 +212,7 @@ const styles=StyleSheet.create({
       flex: 1,
     },
     counter: {
+
       backgroundColor: 'transparent',
       borderRadius: 70,
       marginLeft: 10,

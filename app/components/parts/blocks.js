@@ -135,7 +135,7 @@ export default class Block extends Component{
   quitBtn() {
     //this.restartBtn()
     console.log(this.state.index + 'index')
-    Actions.menu()
+    Actions.menu({type: 'back'})
   }
 
   render() {

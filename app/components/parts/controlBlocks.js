@@ -17,11 +17,11 @@ let iconSize = undefined
 function setIcon() {
   console.log(width)
   if (width <= 375) {
-    iconSize = 60
-  } else if (width == 414 ) {
     iconSize = 65
-  } else {
+  } else if (width == 414 ) {
     iconSize = 70
+  } else {
+    iconSize = 75
   }
 }
 const ControlBlocks = (props) => {

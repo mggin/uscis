@@ -90,8 +90,6 @@ export default class Test extends Component {
   }
 
   render() {
-    // console.log(listOfQuiz[8]['C1'])
-    // console.log(JSON.stringify(listOfQuiz))
     /*
     for (i = 0; i < listOfRandomQuiz.length; i++){
       var block = <Block quiz={listOfEnglishTest[listOfRandomQuiz[i]]} />
@@ -104,7 +102,6 @@ export default class Test extends Component {
       <View style={{flex: 1}}>
         <StatusBar backgroundColor="blue"
                    barStyle="light-content" />
-
 
           <Block quiz={this.state.quiz} selected={selectedChoices[this.state.index]}
                  index={this.state.index} onSelect={this.onSelect} reset={this.resetBlock}

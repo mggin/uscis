@@ -13,9 +13,9 @@ let iconSize = undefined
 
 function setIcon() {
   if (width <= 375) {
-    iconSize = 60
-  } else if (width == 414 ) {
     iconSize = 65
+  } else if (width == 414 ) {
+    iconSize = 70
   } else {
     iconSize = 75
   }

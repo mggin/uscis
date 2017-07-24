@@ -11,8 +11,9 @@ import {
   TouchableOpacity,
   View,
   Image,
+  Text
 } from 'react-native';
-
+import LinearGradient from 'react-native-linear-gradient';
 import {Actions, Scenes} from 'react-native-router-flux'
 import {listOfQuiz, clearListOfQuiz} from '../operator/setQuiz'
 // import studyImage from './assets/uscis-study.png'
@@ -27,8 +28,17 @@ export default class Menu extends Component {
     console.log(listOfQuiz)
     console.log('print listOfQuiz on menu')
     return (
-      <View style={styles.container}>
+      <View style={{flex: 1}}>
+      <Image source={require('../assets/uscis-flag.jpg')}
+             resizeMode="cover"
+             style={styles.container}>
+        <View style={{flex: 0.2}}>
+          <Image source={require('../assets/title1.png')}
+                 resizeMode='cover'
+                 style={styles.title}/>
+        </View>
         <View style={styles.row}>
+
           <View style={styles.studyGuide}>
             <TouchableOpacity onPress={() => Actions.study()}
                               activeOpacity={0.7}>
@@ -64,7 +74,8 @@ export default class Menu extends Component {
             </TouchableOpacity>
           </View>
         </View>
-      </View>
+      </Image>
+    </View>
     );
   }
 }
@@ -72,12 +83,16 @@ export default class Menu extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'transparent',
+    width: undefined,
+    height: undefined,
   },
   row: {
     flex: 1,
     flexDirection: 'row',
   },
   studyGuide: {
+    backgroundColor: 'transparent',
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
@@ -108,5 +123,12 @@ const styles = StyleSheet.create({
   menuStyle: {
     width: 100,
     height: 100,
+  },
+  title: {
+    //flex: 1,
+    width: 300,
+    height: 130,
+    marginTop: 70,
+    alignSelf: 'center',
   }
 });
