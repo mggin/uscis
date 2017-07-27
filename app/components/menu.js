@@ -29,14 +29,16 @@ export default class Menu extends Component {
     console.log('print listOfQuiz on menu')
     return (
       <View style={{flex: 1}}>
-      <Image source={require('../assets/uscis-flag.jpg')}
+        <Image source={require('../assets/uscis-flag.jpg')}
              resizeMode="cover"
              style={styles.container}>
+             {/*
         <View style={{flex: 0.2}}>
           <Image source={require('../assets/title1.png')}
                  resizeMode='cover'
                  style={styles.title}/>
         </View>
+        */}
         <View style={styles.row}>
 
           <View style={styles.studyGuide}>

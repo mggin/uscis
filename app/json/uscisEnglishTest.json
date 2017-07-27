@@ -100,7 +100,7 @@
     "C1": "Congress",
     "C2": "United Nations",
     "C3": "NATO",
-    "C4": "parliament",
+    "C4": "Parliament",
     "index": 12,
   },
   "N14": {
@@ -329,7 +329,7 @@
   },
   "N42": {
     "Q": "Under our Constitution, some powers belong to the states. What is one power of the states?",
-    "C1": "Provide schooling and education)",
+    "C1": "Provide schooling and education",
     "C2": "Make treaties",
     "C3": "Create an army",
     "C4": "Coin or print money",
@@ -561,7 +561,7 @@
   },
   "N71": {
     "Q": "What territory did the United States buy from France in 1803?",
-    "C1": "the Louisiana Territory",
+    "C1": "Louisiana Territory",
     "C2": "Quebec",
     "C3": "Hawaii",
     "C4": "Alaska",

@@ -6,7 +6,7 @@
   },
   "N2": {
     "Q": "Gamki-ukna Thukhunpi in bangteng vaan hiam?",
-    "A": "Gam-uk ding kumpi phut \n Americans mite’ septheih leh ngahtheih peuhmah peelhem saklo (protects) \n Ki-ukzia ding gee",
+    "A": "Gam-uk ding kumpi phut \n Ki-ukzia ding gee \n Americans mite’ septheih leh ngahtheih peuhmah peelhem saklo (protects)",
     "index": 1,
   },
   "N3": {
@@ -221,7 +221,7 @@
   },
   "N45": {
     "Q": "USA ah naingnganzi party lian nih bang ahi hiam?",
-    "A": "Democratic and Republican",
+    "A": "Democratic leh Republican",
     "index": 44,
   },
   "N46": {
@@ -401,12 +401,12 @@
   },
   "N81": {
     "Q": "Leitung Galpi Nihna hun lai in United States in kuate do hiam?",
-    "A": "Japan, Germany, and Italy",
+    "A": "Japan, Germany leh Italy",
     "index": 80,
   },
   "N82": {
     "Q": "Eisenhower President a suahma in galkap mang General ahi hi. Bang gal do ahi hiam?",
-    "A": "World War II",
+    "A": "Leitung Galpi II",
     "index": 81,
   },
   "N83": {

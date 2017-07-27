@@ -72,7 +72,8 @@ export default class Setting extends Component {
                      onDismissed={this.setQuantity()}
                      onShown={() => this.setState({active: true})}
                      //haveOverlay={false}
-                     overlayOpacity={0.5}
+                     dismissOnTouchOutside={false}
+                     overlayOpacity={0.6}
                      ref={(popupDialog) => { this.popupOfLocation = popupDialog}}>
                      <Picker selectedValue={this.state.valueOfLocation}
                              style={styles.picker}
@@ -91,7 +92,8 @@ export default class Setting extends Component {
                      onDismissed={() => this.setQuantity()}
                      onShown={() => this.setState({active: true})}
                      //haveOverlay={false}
-                     overlayOpacity={0.5}
+                     overlayOpacity={0.6}
+                     dismissOnTouchOutside={false}
                      ref={(popupDialog) => { this.popupOfQuiz = popupDialog}}>
                      <Picker selectedValue={this.state.valueOfQuiz}
                              style={styles.picker}
@@ -146,6 +148,7 @@ const styles=StyleSheet.create({
   },
   picker: {
     flex: 3,
+    // fontFamily: 'Trebuchet MS',
   },
   dialogStyle: {
     borderRadius: 11,
@@ -162,7 +165,7 @@ const styles=StyleSheet.create({
   txtDialog: {
     fontSize: 16,
     color: '#ecf0f1',
-    fontFamily: 'Gill Sans'
+    fontFamily: 'Trebuchet MS',
   },
   icon: {
     flex: 1,
@@ -173,6 +176,7 @@ const styles=StyleSheet.create({
     // backgroundColor: 'red',
   },
   txtDesign: {
+    fontFamily: 'Trebuchet MS',
     flex: 4,
     fontSize: 17,
     color: '#2c3e50'
@@ -190,7 +194,8 @@ const styles=StyleSheet.create({
   },
   value: {
     color: '#2c3e50',
-    textAlign: 'right'
+    textAlign: 'right',
+    fontFamily: 'Trebuchet MS',
     // fontFamily: 'Times New Roman'
 
 
