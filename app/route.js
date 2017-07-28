@@ -16,6 +16,7 @@ import Menu from './components/menu'
 import Study from './components/study'
 import Test from './components/test'
 import Setting from './components/setting'
+import About from './components/about'
 
 export default class Route extends Component {
   render() {
@@ -34,6 +35,9 @@ export default class Route extends Component {
           <Scene key='setting'
                  // initial={true}
                  component={Setting}/>
+          <Scene key='about'
+                 // initial={true}
+                 component={About}/>
       </Router>
     )
   }

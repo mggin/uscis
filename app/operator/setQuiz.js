@@ -26,7 +26,7 @@ function randomQuiz(quizQuantity) {
   } else {}
   let condition = true
   while (condition) {
-     num = Math.floor((Math.random() * 99) + 0)
+     num = Math.floor((Math.random() * 96) + 0)
     console.log(quizQuantity)
     if (numOfRandomQuiz.length === quiz) {
       condition = false
@@ -40,7 +40,8 @@ function randomQuiz(quizQuantity) {
 /* randomChoice choose the random number 1 to 4
 in order to rotate the choices's place */
 export function randomChoice() {
-  //console.log('randomChoice')
+  console.log('print me' + listOfEnglishTest.length)
+  console.log('randomquiz ' + numOfRandomQuiz)
   let condition = true
   while (condition) {
     let num = Math.floor((Math.random() * 4) + 0)
@@ -59,6 +60,7 @@ export function setQuiz(num) {
     // console.log(numOfRandomQuiz[i])
     listOfQuiz.push(listOfEnglishTest[numOfRandomQuiz[i]])
     selectedChoices.push('')
+    // console.log(listOfQuiz[i])
   }
 }
 

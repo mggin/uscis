@@ -16,8 +16,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed by Thang Gin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbs-SY-K4b">
-                    <rect key="frame" x="124" y="440" width="233" height="20"/>
-                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                    <rect key="frame" x="50" y="442.5" width="380" height="17.5"/>
+                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -25,8 +25,8 @@
             <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="xbs-SY-K4b" secondAttribute="bottom" constant="20" id="Bh3-8A-kjG"/>
-                <constraint firstItem="xbs-SY-K4b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="124" id="YEd-fd-SPV"/>
-                <constraint firstAttribute="trailing" secondItem="xbs-SY-K4b" secondAttribute="trailing" constant="123" id="udE-N9-SXb"/>
+                <constraint firstItem="xbs-SY-K4b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="YEd-fd-SPV"/>
+                <constraint firstAttribute="trailing" secondItem="xbs-SY-K4b" secondAttribute="trailing" constant="50" id="udE-N9-SXb"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

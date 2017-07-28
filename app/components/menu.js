@@ -29,16 +29,14 @@ export default class Menu extends Component {
     console.log('print listOfQuiz on menu')
     return (
       <View style={{flex: 1}}>
-        <Image source={require('../assets/uscis-flag.jpg')}
-             resizeMode="cover"
-             style={styles.container}>
-             {/*
-        <View style={{flex: 0.2}}>
+        <LinearGradient style={{flex: 1}} colors={['#6f86d6', '#48c6ef']}>
+
+
+        <View style={{flex: 0.25}}>
           <Image source={require('../assets/title1.png')}
                  resizeMode='cover'
                  style={styles.title}/>
         </View>
-        */}
         <View style={styles.row}>
 
           <View style={styles.studyGuide}>
@@ -68,7 +66,7 @@ export default class Menu extends Component {
             </TouchableOpacity>
           </View>
           <View style={styles.aboutUs}>
-            <TouchableOpacity onPress={() => Actions.menu()}
+            <TouchableOpacity onPress={() => Actions.about()}
                               activeOpacity={0.7}>
               <Image source={require('../assets/uscis-aboutUs.png')}
                      resizeMode="cover"
@@ -76,7 +74,7 @@ export default class Menu extends Component {
             </TouchableOpacity>
           </View>
         </View>
-      </Image>
+      </LinearGradient>
     </View>
     );
   }
