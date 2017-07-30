@@ -7,6 +7,7 @@ import {
   Picker,
   StyleSheet,
   StatusBar,
+  Dimensions
 } from 'react-native'
 
 import NavBar from './settings/navBar'
@@ -14,6 +15,26 @@ import {states} from '../json/jsonObjects'
 import Icon from 'react-native-vector-icons/Ionicons'
 import PopupDialog, { DialogTitle, SlideAnimation, DialogButton} from 'react-native-popup-dialog'
 
+const {width, height}  = Dimensions.get('window')
+
+let marginLeftOfItem = 4
+let iconSize = 35
+let txtDialogFontSize = 16
+let textDesingfontSize = 17
+let heightOfItem = 60
+let fontSizeOfvalue = 16
+let popupDialogWidth = 300
+let flexOfPicker = 3
+if (width == 1024) {
+  marginLeftOfItem = 20
+  iconSize = 60
+  textDesingfontSize = 25
+  heightOfItem = 100
+  fontSizeOfvalue = 20
+  popupDialogSize = 600
+  flexOfPicker = 6
+  // txtDialogFontSize = 20
+}
 export default class Setting extends Component {
   constructor(props) {
     super(props)
@@ -24,7 +45,7 @@ export default class Setting extends Component {
       }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     AsyncStorage.getItem('@QU1Z', (err, result) => {
       this.setState({valueOfQuiz: result})
     })
@@ -43,17 +64,16 @@ export default class Setting extends Component {
     } catch (error) {
    // Error saving data
     }
-    AsyncStorage.getItem('@LOCATION', (err, result) => {
-      console.log(result)
-    })
   }
   _locationDismissed(){
     this.setState({active: false})
     this.popupOfLocation.dismiss()
+    this.setQuantity()
   }
   _quizDismissed() {
     this.setState({active: false})
     this.popupOfQuiz.dismiss()
+    this.setQuantity()
   }
 
   render() {
@@ -67,9 +87,10 @@ export default class Setting extends Component {
         <StatusBar barStyle="light-content"/>
         <NavBar />
         <PopupDialog dialogTitle={<DialogTitle title="SET LOCATION" />}
-                     width={300}
+                     width={popupDialogSize}
+                     height={popupDialogSize}
                      dialogStyle={styles.dialogStyle}
-                     onDismissed={this.setQuantity()}
+                     // onDismissed={this.setQuantity()}
                      onShown={() => this.setState({active: true})}
                      //haveOverlay={false}
                      dismissOnTouchOutside={false}
@@ -87,9 +108,10 @@ export default class Setting extends Component {
             </TouchableOpacity>
         </PopupDialog>
         <PopupDialog dialogTitle={<DialogTitle title="SET QUESTION" />}
-                     width={300}
+                     width={popupDialogSize}
+                     height={popupDialogSize}
                      dialogStyle={styles.dialogStyle}
-                     onDismissed={() => this.setQuantity()}
+                     // onDismissed={() => this.setQuantity()}
                      onShown={() => this.setState({active: true})}
                      //haveOverlay={false}
                      overlayOpacity={0.6}
@@ -113,7 +135,7 @@ export default class Setting extends Component {
                            activeOpacity={0.6}
                            onPress={() => this.popupOfQuiz.show()}>
           <View style={styles.icon}>
-          <Icon name="ios-paper" size={35} color="rgb(0, 102, 102)" />
+          <Icon name="ios-paper" size={iconSize} color="rgb(0, 102, 102)" />
           </View>
           <Text style={styles.txtDesign}>ASSIGN QUESTION</Text>
           <View style={styles.valueBox}>
@@ -125,7 +147,7 @@ export default class Setting extends Component {
                            activeOpacity={0.6}
                            onPress={() => this.popupOfLocation.show()}>
           <View style={styles.icon}>
-          <Icon name="ios-pin" size={35} color="rgb(0, 102, 102)" />
+          <Icon name="ios-pin" size={iconSize} color="rgb(0, 102, 102)" />
           </View>
           <Text style={styles.txtDesign}>SET LOCATION</Text>
           <View style={styles.valueBox}>
@@ -139,15 +161,17 @@ export default class Setting extends Component {
 
 const styles=StyleSheet.create({
   settingItems: {
-    height: 60,
+    height: heightOfItem,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: 'transparent',
     borderBottomWidth: 0.5,
-    marginLeft: 4,
+    marginLeft: marginLeftOfItem,
   },
   picker: {
-    flex: 3,
+    flex: flexOfPicker,
+
+    // alignSelf: 'center',
     // fontFamily: 'Trebuchet MS',
   },
   dialogStyle: {
@@ -163,7 +187,7 @@ const styles=StyleSheet.create({
     borderBottomRightRadius: 11
   },
   txtDialog: {
-    fontSize: 16,
+    fontSize: txtDialogFontSize,
     color: '#ecf0f1',
     fontFamily: 'Trebuchet MS',
   },
@@ -178,7 +202,7 @@ const styles=StyleSheet.create({
   txtDesign: {
     fontFamily: 'Trebuchet MS',
     flex: 4,
-    fontSize: 17,
+    fontSize: textDesingfontSize,
     color: '#2c3e50'
   },
   valueBox: {
@@ -196,6 +220,7 @@ const styles=StyleSheet.create({
     color: '#2c3e50',
     textAlign: 'right',
     fontFamily: 'Trebuchet MS',
+    fontSize: fontSizeOfvalue,
     // fontFamily: 'Times New Roman'
 
 

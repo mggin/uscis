@@ -9,19 +9,15 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons';
 const {height, width} = Dimensions.get('window')
-let iconSize = undefined
+let iconSize = 65
 
-function setIcon() {
-  if (width <= 375) {
-    iconSize = 65
-  } else if (width == 414 ) {
-    iconSize = 70
-  } else {
-    iconSize = 75
-  }
-}
+if (width == 1024) {
+  iconSize = 100
+} else if (width == 414) {
+  iconSize = 70
+} else {}
+
 const ControlCard = (props) => {
-  setIcon()
   return (
     <View style={styles.row}>
       <TouchableOpacity onPress={() => props.previousCard()}

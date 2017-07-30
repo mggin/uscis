@@ -15,7 +15,12 @@ import NavBar from './settings/navBar'
 import {states} from '../json/jsonObjects'
 import {listOfEnglish, listOfZomi} from '../json/jsonObjects'
 // import sample from '../json/sample.js'
-const {height, width} = Dimensions.get('window')
+const {width, height} = Dimensions.get('window')
+
+let fontSizeOfcounterTxt = 16
+if (width == 1024) {
+  fontSizeOfcounterTxt = 26
+}
 class Study extends Component {
   constructor(props){
     super(props)
@@ -212,27 +217,28 @@ const styles=StyleSheet.create({
       flex: 1,
     },
     counter: {
-
+      flex: 0.8,
       backgroundColor: 'transparent',
       borderRadius: 70,
       marginLeft: 10,
       marginBottom: 5,
-      padding: 7,
-      width: 70,
+      padding: 1,
       justifyContent: 'center',
       alignItems: 'center',
       borderWidth: StyleSheet.hairlineWidth,
       borderColor: 'rgb(0, 102, 102)'
     },
     counterTxt: {
+      fontSize: fontSizeOfcounterTxt,
       color: 'rgb(0, 102, 102)',
       fontFamily: 'Times New Roman',
     },
     slider: {
       flex: 4,
+      alignSelf: 'center',
       marginLeft: 10,
       marginRight: 10,
-      marginBottom: 5,
+      //marginBottom: 5,
     },
     sliderSty: {
       // borderColor: 'red'

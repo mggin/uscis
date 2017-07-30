@@ -7,11 +7,18 @@ import {
   StyleSheet,
 } from 'react-native'
 
+const {width, height} = Dimensions.get('window')
 
+let heightOfContainer = 65
+let sizeOfquitImg = 30
+
+if (width == 1024) {
+  heightOfContainer = 100
+  sizeOfquitImg = 50
+}
 import {checkAnswer} from '../../operator/setQuiz'
 
 /* This appear on the top of test UI, which let you quit from the test */
-const {width, height} = Dimensions.get('window')
 const QuitBar = (props) => {
   return (
     <View style={styles.container}>
@@ -29,15 +36,15 @@ const QuitBar = (props) => {
 const styles=StyleSheet.create({
   container: {
     width: width,
-    height: 65,
+    height: heightOfContainer,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
     backgroundColor: 'rgb(102, 0, 51)',
   },
 quitImg: {
-    width: 30,
-    height: 30,
+    width: sizeOfquitImg,
+    height: sizeOfquitImg,
     borderRadius: 5,
     marginRight: 5,
     marginBottom: 5,

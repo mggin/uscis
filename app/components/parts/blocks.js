@@ -14,6 +14,30 @@ import PopupDialog, { DialogTitle, SlideAnimation, DialogButton} from 'react-nat
 import {listOfQuiz, checkAnswer, setQuiz, numOfRandomChoice,randomChoice, correctChoices, selectedChoices, selectedChoiceToCheck } from '../../operator/setQuiz'
 
 const {height, width} = Dimensions.get('window')
+
+let fontSizeOfquesTxt = 19
+let fontSizeOfchoiceTxt = 17
+let marginOfBox = 10
+let betweenBox = 5
+let fontSizeOfpopItemsTxt = 17
+let widthOfpopItems = 100
+let sizeOfPopUpDialog = 350
+let fontSizeOfPercent = 30
+let fontSizeOfProgress = 18
+if (width == 1024) {
+  fontSizeOfquesTxt = 29
+  fontSizeOfchoiceTxt = 27
+  fontSizeOfindexTxt = 25
+  marginOfBox = 10
+  betweenBox = 10
+  fontSizeOfpopItemsTxt = 27
+  widthOfpopItems =  150
+  sizeOfPopUpDialog = 700
+  fontSizeOfProgress = 28
+  fontSizeOfPercent = 60
+}
+
+
 export default class Block extends Component{
   constructor(props) {
     super(props)
@@ -68,7 +92,7 @@ export default class Block extends Component{
     console.log(this.state.index + 'nextAndBackShow')
     console.log(selectedChoices.length + 'selectedChoices')
     if (this.state.index == 0) {
-      this.setState({showNext: true})
+      this.setState({showNext: true, showBack: false, submitBtn: false})
     } else if (this.state.index == selectedChoices.length-1){
       //console.log(selectedChoices.length + 'select')
       this.setState({submitBtn: true, showNext: false, showBack: true})
@@ -158,7 +182,7 @@ export default class Block extends Component{
 
           <QuitBar show={this.showQuit} dismiss={this.dismissQuit}/>
             <View style={styles.blockContainer}>
-              <View style={{margin: 5, padding: 5}}>
+              <View style={{margin: marginOfBox, padding: 5}}>
                 <Text style={styles.indexTxt}>Question {index} of {selectedChoices.length}</Text>
               </View>
               <View style={styles.ques}>
@@ -188,7 +212,7 @@ export default class Block extends Component{
             <ControlBlocks nextBtn={this.state.showNext} backBtn={this.state.showBack} submit={this.submit}
                            submitBtn={this.state.submitBtn}
                            nextBlock={this.nextBlock.bind(this)} previousBlock={this.previousBlock.bind(this)}/>
-            <PopupDialog width={120} height={70}
+            <PopupDialog width={300} height={300}
                         // dialogTitle={<DialogTitle title="EXIT" />}
                         dialogStyle={styles.dialogStyle}
                        //dismissOnTouchOutside={false}
@@ -210,7 +234,7 @@ export default class Block extends Component{
                           </TouchableOpacity>
                         </View>
           </PopupDialog>
-          <PopupDialog width={350} height={350}
+          <PopupDialog width={sizeOfPopUpDialog} height={sizeOfPopUpDialog}
                       // dialogTitle={<DialogTitle title="EXIT" />}
                       dialogStyle={styles.progressView}
                      dismissOnTouchOutside={false}
@@ -250,8 +274,8 @@ const styles=StyleSheet.create({
    backgroundColor: '#ecf0f1'
  },
  ques: {
-   marginLeft: 10,
-   marginRight: 10,
+   marginLeft: marginOfBox,
+   marginRight: marginOfBox,
    marginBottom: 10,
    borderRadius: 5,
    // borderWidth: StyleSheet.hairlineWidth,
@@ -259,31 +283,31 @@ const styles=StyleSheet.create({
  },
  quesTxt: {
    textAlign: 'left',
-   fontSize: 19,
+   fontSize: fontSizeOfquesTxt,
    color: '#2c3e50',
    fontFamily: 'Times New Roman'
  },
  box: {
    padding: 15,
-   marginLeft: 10,
-   marginRight: 10,
-   marginBottom: 5,
-   marginTop: 5,
+   marginLeft: marginOfBox,
+   marginRight: marginOfBox,
+   marginBottom: betweenBox,
+   marginTop: betweenBox,
    borderRadius: 5,
    borderWidth: StyleSheet.hairlineWidth,
  },
  choiceTxt: {
    textAlign: 'left',
-   fontSize: 17,
+   fontSize: fontSizeOfchoiceTxt,
    color: '#2c3e50',
    fontFamily: 'Times New Roman'
  },
  indexTxt: {
    textAlign: 'left',
-   fontSize: 15,
+   fontSize: fontSizeOfindexTxt,
    opacity: 0.9,
    color: '#34495e',
-   fontFamily: 'Times New Roman'
+   fontFamily: 'Times New Roman',
  },
  blockContainer: {
    flex: 1,
@@ -298,18 +322,21 @@ const styles=StyleSheet.create({
    alignItems: 'center',
  },
  popItems: {
-   width: 100,
+   width: widthOfpopItems,
+   height: widthOfpopItems/2,
    borderWidth: StyleSheet.hairlineWidth,
+   justifyContent: 'center',
+   alignItems: 'center',
    borderRadius: 50,
    borderColor: 'rgb(102, 0, 51)',
    padding: 10,
    margin: 10,
-  backgroundColor: 'white'
+   backgroundColor: 'white'
  },
  popItemsTxt: {
    textAlign: 'center',
    fontFamily: 'Optima',
-   fontSize: 17,
+   fontSize: fontSizeOfpopItemsTxt,
    color: 'rgb(102, 0, 51)'
  },
  progressView: {
@@ -318,7 +345,7 @@ const styles=StyleSheet.create({
  },
  progress: {
    color: 'white',
-   fontSize: 18,
+   fontSize: fontSizeOfProgress,
    fontFamily: 'Times New Roman',
    marginBottom: 15,
    marginTop: 20
@@ -326,7 +353,7 @@ const styles=StyleSheet.create({
  percent: {
    color: 'white',
    fontFamily: 'Optima-Bold',
-   fontSize: 30,
+   fontSize: fontSizeOfPercent,
    // padding: 10,
    // margin: 10
 

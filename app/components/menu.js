@@ -11,13 +11,32 @@ import {
   TouchableOpacity,
   View,
   Image,
-  Text
+  Text,
+  Dimensions,
+  StatusBar,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {Actions, Scenes} from 'react-native-router-flux'
 import {listOfQuiz, clearListOfQuiz} from '../operator/setQuiz'
 // import studyImage from './assets/uscis-study.png'
 
+
+const {width, height} = Dimensions.get('window')
+let paddingRight = 20
+let paddingBottom = 20
+let imageSize = 100
+let titleWidth = 300
+let titleHeight = 130
+
+if (width == 1024) {
+  paddingRight = 70 // + 50
+  paddingBottom = 70 // + 50
+  imageSize = 200 // + 100
+  titleWidth = 600 // + 300
+  titleHeight =  200 // + 70
+} else if (width == 768) {
+
+} else {}
 export default class Menu extends Component {
 
   componentWillMount() {
@@ -25,10 +44,11 @@ export default class Menu extends Component {
   }
 
   render() {
-    console.log(listOfQuiz)
-    console.log('print listOfQuiz on menu')
+    //console.log(listOfQuiz)
+    //console.log('print listOfQuiz on menu')
     return (
       <View style={{flex: 1}}>
+        <StatusBar barStyle='light-content'/>
         <LinearGradient style={{flex: 1}} colors={['#6f86d6', '#48c6ef']}>
 
 
@@ -96,38 +116,38 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
-    paddingRight: 20,
-    paddingBottom: 25,
+    paddingRight: paddingRight,
+    paddingBottom: paddingBottom,
   },
   test: {
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'flex-start',
-    paddingLeft: 20,
-    paddingBottom: 25,
+    // paddingLeft: 20,
+    paddingBottom: paddingBottom,
   },
   setting: {
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'flex-end',
-    paddingRight: 20,
-    paddingTop: 10,
+    paddingRight: paddingRight,
+    // paddingTop: 10,
   },
   aboutUs: {
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    paddingLeft: 20,
-    paddingTop: 10,
+    // paddingLeft: 20,
+    // paddingTop: 10,
   },
   menuStyle: {
-    width: 100,
-    height: 100,
+    width: imageSize,
+    height: imageSize,
   },
   title: {
     //flex: 1,
-    width: 300,
-    height: 130,
+    width: titleWidth,
+    height: titleHeight,
     marginTop: 70,
     alignSelf: 'center',
   }

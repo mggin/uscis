@@ -8,6 +8,15 @@ import {
 } from 'react-native'
 
 const {width, height} = Dimensions.get('window')
+
+let fontSizeOfquesSty = 19
+let fontSizeOfansSty = 18
+
+if (width == 1024) {
+  fontSizeOfquesSty = 29
+  fontSizeOfansSty = 28
+}
+
 const Card = (props) => {
   return (
     <TouchableOpacity onPress={() => props.flip()}
@@ -48,7 +57,7 @@ const styles = StyleSheet.create({
     //lineHeight: 3,
     color: '#ecf0f1',
     fontFamily: 'Times New Roman',
-    fontSize: 19,
+    fontSize: fontSizeOfquesSty,
     padding: 7,
     // marginBottom: 5,
 
@@ -58,7 +67,7 @@ const styles = StyleSheet.create({
     color: '#34495e',
     fontFamily: 'Times New Roman',
     opacity: 9,
-    fontSize: 18,
+    fontSize: fontSizeOfansSty,
     lineHeight: 25,
   }
 

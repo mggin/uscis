@@ -12,20 +12,17 @@ It control the next and previous question. */
 
 import Icon from 'react-native-vector-icons/Ionicons';
 const {width, height} = Dimensions.get('window')
-let iconSize = undefined
+let iconSize = 65
+let fontSizeOfsubmitTxt = 17
 
-function setIcon() {
-  console.log(width)
-  if (width <= 375) {
-    iconSize = 65
-  } else if (width == 414 ) {
-    iconSize = 70
-  } else {
-    iconSize = 75
-  }
-}
+if (width == 1024) {
+  iconSize = 100
+  fontSizeOfsubmitTxt = 27
+} else if (width == 414) {
+  iconSize = 70
+} else {}
+
 const ControlBlocks = (props) => {
-  setIcon()
   return (
     <View style={styles.row}>{ props.backBtn ? (
       <TouchableOpacity onPress={() => props.previousBlock()}
@@ -38,7 +35,7 @@ const ControlBlocks = (props) => {
         <TouchableOpacity onPress={() => props.submit()}
                           activeOpacity={0.7}>
             <View style={styles.submit}>
-              <Text style={styles.submittxt}>SUBMIT</Text>
+              <Text style={styles.submitTxt}>SUBMIT</Text>
             </View>
         </TouchableOpacity> ) : null}
         { props.submitBtn ? (
@@ -74,15 +71,19 @@ const styles=StyleSheet.create({
     // backgroundColor: 'yellow',
   },
   submit: {
+    width: iconSize+70,
+    height: iconSize,
     borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: '#ecf0f1',
     backgroundColor: "rgb(102, 0, 51)",
     padding: 18,
   },
-  submittxt: {
+  submitTxt: {
     textAlign: 'center',
-    fontSize: 17,
+    fontSize: fontSizeOfsubmitTxt,
     fontFamily: 'Gill Sans',
     color: 'white',
   }

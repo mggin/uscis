@@ -11,12 +11,20 @@ import {Actions, Scenes, ActionConst} from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 const {width, height} = Dimensions.get('window')
+let heightOfContainer = 65
+let iconSize = 33
+let fontSizeOftxt = 16
+if (width == 1024) {
+  heightOfContainer = 100
+  iconSize = 50
+  fontSizeOftxt = 26
+}
 const NavBar = (props) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.icon}
                         onPress={() => Actions.menu({type: ActionConst.BACK})}>
-        <Icon name="ios-arrow-back" size={33} color="#ecf0f1" />
+        <Icon name="ios-arrow-back" size={iconSize} color="#ecf0f1" />
         <Text style={styles.txt}>Back</Text>
       </TouchableOpacity>
     </View>
@@ -27,7 +35,7 @@ const NavBar = (props) => {
 
 const styles=StyleSheet.create({
   container: {
-    height: 65,
+    height: heightOfContainer,
     flexDirection: 'row',
     backgroundColor: 'rgb(0, 102, 102)',
     alignItems: 'flex-end',
@@ -40,7 +48,7 @@ const styles=StyleSheet.create({
   txt: {
     alignSelf: 'center',
     color: 'white',
-    fontSize: 16,
+    fontSize: fontSizeOftxt,
     paddingBottom: 2,
     paddingLeft: 2,
     // backgroundColor: 'red'
