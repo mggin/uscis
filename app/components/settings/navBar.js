@@ -11,6 +11,7 @@ import {Actions, Scenes, ActionConst} from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 const {width, height} = Dimensions.get('window')
+
 let heightOfContainer = 65
 let iconSize = 33
 let fontSizeOftxt = 16
@@ -36,8 +37,6 @@ const NavBar = (props) => {
     </View>
   )
 }
-
-
 
 const styles=StyleSheet.create({
   container: {

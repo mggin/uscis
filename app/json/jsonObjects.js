@@ -69,7 +69,7 @@ export const listOfEnglishTest =  [ uscisEnglishTest.N1, uscisEnglishTest.N2, us
                                     uscisEnglishTest.N86, uscisEnglishTest.N87, uscisEnglishTest.N88, uscisEnglishTest.N89, uscisEnglishTest.N90,
                                     uscisEnglishTest.N91, uscisEnglishTest.N92, uscisEnglishTest.N93, uscisEnglishTest.N94, uscisEnglishTest.N95,
                                     uscisEnglishTest.N96, uscisEnglishTest.N97, uscisEnglishTest.N98, uscisEnglishTest.N99, uscisEnglishTest.N100]
-
+/*
 export const listOfZomiTest = [ uscisZomiTest.N1, uscisZomiTest.N2, uscisZomiTest.N3, uscisZomiTest.N4, uscisZomiTest.N5,
                                 uscisZomiTest.N6, uscisZomiTest.N7, uscisZomiTest.N8, uscisZomiTest.N9, uscisZomiTest.N10,
                                 uscisZomiTest.N11, uscisZomiTest.N12, uscisZomiTest.N13, uscisZomiTest.N14, uscisZomiTest.N15,
@@ -91,7 +91,7 @@ export const listOfZomiTest = [ uscisZomiTest.N1, uscisZomiTest.N2, uscisZomiTes
                                 uscisZomiTest.N91, uscisZomiTest.N92, uscisZomiTest.N93, uscisZomiTest.N94, uscisZomiTest.N95,
                                 uscisZomiTest.N96, uscisZomiTest.N97, uscisZomiTest.N98, uscisZomiTest.N99, uscisZomiTest.N100]
 
-
+*/
 export const states = [ usStates.S1, usStates.S2, usStates.S3, usStates.S4, usStates.S5,
                         usStates.S6, usStates.S7, usStates.S8, usStates.S9, usStates.S10,
                         usStates.S11, usStates.S12, usStates.S13, usStates.S14, usStates.S15,

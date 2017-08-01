@@ -7,7 +7,9 @@ import {
 import {
   AdMobBanner,
 } from 'react-native-admob'
+
 const {width, height} = Dimensions.get('window')
+
 let marginTopOfadSty = 15
 
 if (width > 500) {

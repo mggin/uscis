@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
     fontSize: fontSizeOfansSty,
     lineHeight: 25,
   }
-
 })
 
 export default Card
