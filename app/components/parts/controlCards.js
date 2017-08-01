@@ -15,6 +15,8 @@ if (width == 1024) {
   iconSize = 100
 } else if (width == 414) {
   iconSize = 70
+} else if (width == 768){
+  iconSize = 90
 } else {}
 
 const ControlCard = (props) => {

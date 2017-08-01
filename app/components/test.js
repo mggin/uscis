@@ -11,7 +11,7 @@ import {
 } from 'react-native'
 import QuitBar from './parts/quitBar'
 import Block from './parts/blocks'
-import Ads1 from './ads/ads1'
+import Ad from './ads/ad'
 import ControlBlocks from './parts/controlBlocks'
 import {listOfEnglishTest} from '../json/jsonObjects'
 import PopupDialog, { DialogTitle, SlideAnimation, DialogButton} from 'react-native-popup-dialog'
@@ -106,9 +106,6 @@ export default class Test extends Component {
           <Block quiz={this.state.quiz} selected={selectedChoices[this.state.index]}
                  index={this.state.index} onSelect={this.onSelect} reset={this.resetBlock}
                  changes={this.state.change} nextBlock={this.nextBlock} previousBlock={this.previousBlock}/>
-
-
-
 
       </View>
     )

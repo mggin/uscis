@@ -15,6 +15,7 @@ import {
   Dimensions,
   StatusBar,
 } from 'react-native';
+import Ad from './ads/ad'
 import LinearGradient from 'react-native-linear-gradient';
 import {Actions, Scenes} from 'react-native-router-flux'
 import {listOfQuiz, clearListOfQuiz} from '../operator/setQuiz'
@@ -22,20 +23,24 @@ import {listOfQuiz, clearListOfQuiz} from '../operator/setQuiz'
 
 
 const {width, height} = Dimensions.get('window')
-let paddingRight = 20
-let paddingBottom = 20
+let paddingRight = 35
+let paddingBottom = 35
 let imageSize = 100
 let titleWidth = 300
 let titleHeight = 130
 
 if (width == 1024) {
-  paddingRight = 70 // + 50
-  paddingBottom = 70 // + 50
-  imageSize = 200 // + 100
-  titleWidth = 600 // + 300
-  titleHeight =  200 // + 70
+  paddingRight = 70 // +50
+  paddingBottom = 70 // +50
+  imageSize = 200 // +100
+  titleWidth = 600 // +300
+  titleHeight =  200 // +70
 } else if (width == 768) {
-
+  paddingRight = 50 // +30
+  paddingBottom = 50 // +30
+  imageSize = 150 // +50
+  titleWidth = 450 // +150
+  titleHeight =  165 // +35
 } else {}
 export default class Menu extends Component {
 

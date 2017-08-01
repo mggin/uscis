@@ -14,13 +14,16 @@ import ControlCard from './parts/controlCards'
 import NavBar from './settings/navBar'
 import {states} from '../json/jsonObjects'
 import {listOfEnglish, listOfZomi} from '../json/jsonObjects'
+import Ad from './ads/ad'
 // import sample from '../json/sample.js'
 const {width, height} = Dimensions.get('window')
 
 let fontSizeOfcounterTxt = 16
 if (width == 1024) {
   fontSizeOfcounterTxt = 26
-}
+} else if (width == 768) {
+  fontSizeOfcounterTxt = 21
+} else {}
 class Study extends Component {
   constructor(props){
     super(props)
@@ -185,6 +188,7 @@ class Study extends Component {
                          previousCard={this.previousCard.bind(this)}/>
           </View>
         </View>
+        <Ad />
 
       </View>
     </View>

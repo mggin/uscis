@@ -23,7 +23,7 @@ let txtDialogFontSize = 16
 let textDesingfontSize = 17
 let heightOfItem = 60
 let fontSizeOfvalue = 16
-let popupDialogWidth = 300
+let popupDialogSize = 300
 let flexOfPicker = 3
 if (width == 1024) {
   marginLeftOfItem = 20
@@ -34,7 +34,15 @@ if (width == 1024) {
   popupDialogSize = 600
   flexOfPicker = 6
   // txtDialogFontSize = 20
-}
+} else if (width == 768) {
+  marginLeftOfItem = 10
+  iconSize = 50
+  textDesingfontSize = 22
+  heightOfItem = 80
+  fontSizeOfvalue = 18
+  popupDialogSize = 450
+  flexOfPicker = 4
+} else {}
 export default class Setting extends Component {
   constructor(props) {
     super(props)

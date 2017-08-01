@@ -6,6 +6,7 @@ import {
   Dimensions,
   StyleSheet,
 } from 'react-native'
+import {checkAnswer} from '../../operator/setQuiz'
 
 const {width, height} = Dimensions.get('window')
 
@@ -15,8 +16,10 @@ let sizeOfquitImg = 30
 if (width == 1024) {
   heightOfContainer = 100
   sizeOfquitImg = 50
-}
-import {checkAnswer} from '../../operator/setQuiz'
+} else if (width == 768) {
+  heightOfContainer = 85
+  sizeOfquitImg = 40
+} else {}
 
 /* This appear on the top of test UI, which let you quit from the test */
 const QuitBar = (props) => {

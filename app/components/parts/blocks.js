@@ -9,6 +9,7 @@ import {
 
 import ControlBlocks from './controlBlocks'
 import QuitBar from './quitBar'
+import Ad from '../ads/ad'
 import {Actions, Scence} from 'react-native-router-flux'
 import PopupDialog, { DialogTitle, SlideAnimation, DialogButton} from 'react-native-popup-dialog'
 import {listOfQuiz, checkAnswer, setQuiz, numOfRandomChoice,randomChoice, correctChoices, selectedChoices, selectedChoiceToCheck } from '../../operator/setQuiz'
@@ -24,6 +25,8 @@ let widthOfpopItems = 100
 let sizeOfPopUpDialog = 350
 let fontSizeOfPercent = 30
 let fontSizeOfProgress = 18
+let fontSizeOfindexTxt = 16
+
 if (width == 1024) {
   fontSizeOfquesTxt = 29
   fontSizeOfchoiceTxt = 27
@@ -35,7 +38,18 @@ if (width == 1024) {
   sizeOfPopUpDialog = 700
   fontSizeOfProgress = 28
   fontSizeOfPercent = 60
-}
+} else if (width == 768) {
+  fontSizeOfquesTxt = 24
+  fontSizeOfchoiceTxt = 22
+  fontSizeOfindexTxt = 20
+  marginOfBox = 7.5
+  betweenBox = 7.5
+  fontSizeOfpopItemsTxt = 22
+  widthOfpopItems =  125
+  sizeOfPopUpDialog = 500
+  fontSizeOfProgress = 23
+  fontSizeOfPercent = 45
+} else {}
 
 
 export default class Block extends Component{
@@ -262,6 +276,7 @@ export default class Block extends Component{
                       </View>
         </PopupDialog>
         </View>
+        <Ad />
       </View>
     )
   }

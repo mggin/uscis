@@ -13,13 +13,18 @@ const {width, height} = Dimensions.get('window')
 let fontSizeOfcredit = 19
 let fontSizeOfref = 15
 let fontSizeOfzaus = 17
-let fontSizseOfdeveloper = 16
+let fontSizeOfdeveloper = 16
 
 if (width == 1024) {
   fontSizeOfcredit = 29
   fontSizeOfref = 25
   fontSizeOfzaus = 27
   fontSizeOfdeveloper = 26
+} else if (width == 768){
+  fontSizeOfcredit = 24
+  fontSizeOfref = 20
+  fontSizeOfzaus = 22
+  fontSizeOfdeveloper = 21
 } else {}
 export default class About extends Component {
   render() {

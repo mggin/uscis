@@ -14,11 +14,17 @@ const {width, height} = Dimensions.get('window')
 let heightOfContainer = 65
 let iconSize = 33
 let fontSizeOftxt = 16
+
 if (width == 1024) {
   heightOfContainer = 100
   iconSize = 50
   fontSizeOftxt = 26
-}
+} else if (width == 768) {
+  heightOfContainer = 85
+  iconSize = 44
+  fontSizeOftxt = 23
+} else {}
+
 const NavBar = (props) => {
   return (
     <View style={styles.container}>

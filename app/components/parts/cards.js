@@ -15,7 +15,10 @@ let fontSizeOfansSty = 18
 if (width == 1024) {
   fontSizeOfquesSty = 29
   fontSizeOfansSty = 28
-}
+} else if (width == 768) {
+  fontSizeOfquesSty = 29
+  fontSizeOfansSty = 28
+} else {}
 
 const Card = (props) => {
   return (

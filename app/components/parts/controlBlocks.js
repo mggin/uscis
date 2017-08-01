@@ -20,6 +20,9 @@ if (width == 1024) {
   fontSizeOfsubmitTxt = 27
 } else if (width == 414) {
   iconSize = 70
+} else if (width == 768){
+  iconSize = 90
+  fontSizeOfsubmitTxt = 22
 } else {}
 
 const ControlBlocks = (props) => {
@@ -71,7 +74,7 @@ const styles=StyleSheet.create({
     // backgroundColor: 'yellow',
   },
   submit: {
-    width: iconSize+70,
+    width: iconSize+50,
     height: iconSize,
     borderRadius: 10,
     justifyContent: 'center',
@@ -79,7 +82,7 @@ const styles=StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: '#ecf0f1',
     backgroundColor: "rgb(102, 0, 51)",
-    padding: 18,
+    padding: 8,
   },
   submitTxt: {
     textAlign: 'center',
