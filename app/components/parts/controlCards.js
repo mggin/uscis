@@ -14,7 +14,7 @@ const ControlCard = (props) => {
   let direction = 'row'
   let iconSize = 65
 
-  if (width == 1024 || height == 1024) {
+  if (width == 1366 || height == 1366) {
     iconSize = 100
   } else if (width == 414 || height == 414) {
     iconSize = 70
@@ -31,13 +31,13 @@ const ControlCard = (props) => {
     <View style={[styles.row, {flexDirection: direction}]}>
       <TouchableOpacity onPress={() => props.previousCard()}
                         style={styles.back}>
-        <View style={{width: iconSize + 5, height: iconSize + 5}}>
+        <View style={{width: iconSize + 5, height: iconSize + 5, backgroundColor: 'transparent'}}>
               <Icon name="md-arrow-dropleft-circle" size={iconSize} color="rgb(0, 102, 102)" />
         </View>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => props.nextCard()}
                         style={styles.next}>
-        <View style={{width: iconSize + 5, height: iconSize + 5}}>
+        <View style={{width: iconSize + 5, height: iconSize + 5, backgroundColor: 'transparent'}}>
           <Icon name="md-arrow-dropright-circle" size={iconSize} color="rgb(0, 102, 102)" />
         </View>
       </TouchableOpacity>

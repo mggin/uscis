@@ -13,7 +13,7 @@ const {width, height} = Dimensions.get('window')
 let heightOfContainer = 65
 let sizeOfquitImg = 30
 
-if (width == 1024 || height == 1024) {
+if (width == 1366 || height == 1366) {
   heightOfContainer = 100
   sizeOfquitImg = 50
 } else if (width == 768 || height == 768) {

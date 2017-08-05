@@ -28,7 +28,7 @@ let fontSizeOfPercent = 30
 let fontSizeOfProgress = 18
 let fontSizeOfindexTxt = 16
 
-if (width == 1024 || height == 1024) {
+if (width == 1366 || height == 1366) {
   fontSizeOfquesTxt = 29
   fontSizeOfchoiceTxt = 27
   fontSizeOfindexTxt = 25
@@ -296,9 +296,8 @@ export default class Block extends Component{
                         </TouchableOpacity>
                       </View>
         </PopupDialog>
-       <Ad />
       </ScrollView>
-
+      <Ad />
        </View>
 
       </View>

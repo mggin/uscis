@@ -17,7 +17,7 @@ const {width, height} = Dimensions.get('window')
 let iconSize = 65
 let fontSizeOfsubmitTxt = 17
 
-if (width == 1024 || height == 1024) {
+if (width == 1366 || height == 1366) {
   iconSize = 100
   fontSizeOfsubmitTxt = 27
 } else if (width == 414 || height == 414) {

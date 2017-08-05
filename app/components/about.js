@@ -15,7 +15,7 @@ let fontSizeOfref = 15
 let fontSizeOfzaus = 17
 let fontSizeOfdeveloper = 16
 
-if (width == 1024 || height == 1024) {
+if (width == 1366 || height == 1366) {
   fontSizeOfcredit = 29
   fontSizeOfref = 25
   fontSizeOfzaus = 27

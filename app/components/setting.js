@@ -26,7 +26,7 @@ let fontSizeOfvalue = 16
 let popupDialogSize = 300
 let flexOfPicker = 3
 
-if (width == 1024 || height == 1024) {
+if (width == 1366 || height == 1366) {
   marginLeftOfItem = 20
   iconSize = 60
   textDesingfontSize = 25

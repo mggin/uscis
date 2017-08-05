@@ -12,7 +12,7 @@ const Card = (props) => {
   let fontSizeOfquesSty = 19
   let fontSizeOfansSty = 18
 
-  if (width == 1024 || height == 1024) {
+  if (width == 1366 || height == 1366) {
     fontSizeOfquesSty = 29
     fontSizeOfansSty = 28
   } else if (width == 768 || height == 768) {
@@ -27,7 +27,7 @@ const Card = (props) => {
             <Text style={[styles.quesSty, {fontSize: fontSizeOfquesSty}]}>{props.question}</Text>
           </View>
           <View style={styles.bottomBar}>
-            <Text style={[styles.ansSty, {fontSize: fontSizeOfansSty}]}>{props.answer}</Text>
+            <Text style={[styles.ansSty, {fontSize: fontSizeOfansSty, lineHeight: fontSizeOfansSty + 4}]}>{props.answer}</Text>
           </View>
     </TouchableOpacity>
   )
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     color: '#34495e',
     fontFamily: 'Times New Roman',
     opacity: 9,
-    lineHeight: 25,
+
   }
 })
 

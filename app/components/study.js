@@ -155,7 +155,7 @@ class Study extends Component {
   layoutChanged() {
     const {width, height} = Dimensions.get('window')
 
-    if (width == 1024 || height == 1024) {
+    if (width == 1366 || height == 1366) {
       this.state.fontSizeOfcounterTxt = 26
     } else if (width == 768 || 768) {
       this.state.fontSizeOfcounterTxt = 21

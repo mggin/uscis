@@ -74,9 +74,10 @@ export default class Menu extends Component {
   }
   layoutChanged() {
     const {width, height} = Dimensions.get('window')
-    if (width == 1024 || height == 1024) {
+    if (width == 1366 || height == 1366) {
       this.handle1024(width)
     } else if (width == 768 || height == 768) {
+      console.log('768 in')
       this.handle768(width)
     } else {}
     if (width > height) {
