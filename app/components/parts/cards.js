@@ -7,29 +7,27 @@ import {
   Dimensions
 } from 'react-native'
 
-const {width, height} = Dimensions.get('window')
-
-let fontSizeOfquesSty = 19
-let fontSizeOfansSty = 18
-
-if (width == 1024) {
-  fontSizeOfquesSty = 29
-  fontSizeOfansSty = 28
-} else if (width == 768) {
-  fontSizeOfquesSty = 29
-  fontSizeOfansSty = 28
-} else {}
-
 const Card = (props) => {
+  const {width, height} = Dimensions.get('window')
+  let fontSizeOfquesSty = 19
+  let fontSizeOfansSty = 18
+
+  if (width == 1024 || height == 1024) {
+    fontSizeOfquesSty = 29
+    fontSizeOfansSty = 28
+  } else if (width == 768 || height == 768) {
+    fontSizeOfquesSty = 29
+    fontSizeOfansSty = 28
+  } else {}
   return (
     <TouchableOpacity onPress={() => props.flip()}
                       activeOpacity={0.8}
                       style={styles.container}>
           <View style={styles.topBar}>
-            <Text style={styles.quesSty}>{props.question}</Text>
+            <Text style={[styles.quesSty, {fontSize: fontSizeOfquesSty}]}>{props.question}</Text>
           </View>
           <View style={styles.bottomBar}>
-            <Text style={styles.ansSty}>{props.answer}</Text>
+            <Text style={[styles.ansSty, {fontSize: fontSizeOfansSty}]}>{props.answer}</Text>
           </View>
     </TouchableOpacity>
   )
@@ -60,7 +58,6 @@ const styles = StyleSheet.create({
     //lineHeight: 3,
     color: '#ecf0f1',
     fontFamily: 'Times New Roman',
-    fontSize: fontSizeOfquesSty,
     padding: 7,
     // marginBottom: 5,
 
@@ -70,7 +67,6 @@ const styles = StyleSheet.create({
     color: '#34495e',
     fontFamily: 'Times New Roman',
     opacity: 9,
-    fontSize: fontSizeOfansSty,
     lineHeight: 25,
   }
 })

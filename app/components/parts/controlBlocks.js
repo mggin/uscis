@@ -17,12 +17,12 @@ const {width, height} = Dimensions.get('window')
 let iconSize = 65
 let fontSizeOfsubmitTxt = 17
 
-if (width == 1024) {
+if (width == 1024 || height == 1024) {
   iconSize = 100
   fontSizeOfsubmitTxt = 27
-} else if (width == 414) {
+} else if (width == 414 || height == 414) {
   iconSize = 70
-} else if (width == 768){
+} else if (width == 768 || height == 768){
   iconSize = 90
   fontSizeOfsubmitTxt = 22
 } else {}
@@ -58,12 +58,12 @@ const ControlBlocks = (props) => {
 
 const styles=StyleSheet.create({
   row: {
-    width: width,
     height: 100,
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-around',
-    backgroundColor: '#ecf0f1'
+    backgroundColor: '#ecf0f1',
+    marginTop: 30,
   },
   previousIcon: {
     width: iconSize+5,

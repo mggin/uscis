@@ -4,7 +4,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
-  Dimensions
+  Dimensions,
+  ScrollView,
 } from 'react-native'
 
 import ControlBlocks from './controlBlocks'
@@ -27,7 +28,7 @@ let fontSizeOfPercent = 30
 let fontSizeOfProgress = 18
 let fontSizeOfindexTxt = 16
 
-if (width == 1024) {
+if (width == 1024 || height == 1024) {
   fontSizeOfquesTxt = 29
   fontSizeOfchoiceTxt = 27
   fontSizeOfindexTxt = 25
@@ -38,7 +39,7 @@ if (width == 1024) {
   sizeOfPopUpDialog = 700
   fontSizeOfProgress = 28
   fontSizeOfPercent = 60
-} else if (width == 768) {
+} else if (width == 768 || height == 768) {
   fontSizeOfquesTxt = 24
   fontSizeOfchoiceTxt = 22
   fontSizeOfindexTxt = 20
@@ -55,6 +56,7 @@ if (width == 1024) {
 export default class Block extends Component{
   constructor(props) {
     super(props)
+    const {width, height} = Dimensions.get('window')
     this.showQuit = this.showQuit.bind(this)
     this.dismissQuit = this.dismissQuit.bind(this)
     this.showSubmit = this.showSubmit.bind(this)
@@ -72,6 +74,9 @@ export default class Block extends Component{
       color4: 'white',
       correctChoices: 0,
       submitBtn: false,
+      layoutWidth: width,
+      layoutHeight: height,
+      disableBtn: false,
     }
 
   }
@@ -175,6 +180,20 @@ export default class Block extends Component{
     console.log(this.state.index + 'index')
     Actions.menu({type: 'back'})
   }
+  layoutChanged() {
+    const {width, height} = Dimensions.get('window')
+    if (width > height) {
+      this.setState({
+        layoutWidth: width,
+        layoutHeight: width,
+      })
+    } else {
+      this.setState({
+        layoutWidth: width,
+        layoutHeight: height,
+      })
+    }
+  }
 
   render() {
     randomChoice()
@@ -191,10 +210,11 @@ export default class Block extends Component{
 
 
     return (
-      <View style={styles.container}>
+      <View style={styles.container} onLayout={() => this.layoutChanged()}>
         <View style={{flex: 1}}>
 
-          <QuitBar show={this.showQuit} dismiss={this.dismissQuit}/>
+          <QuitBar show={this.showQuit} dismiss={this.dismissQuit} disableBtn={this.state.disableBtn}/>
+          <ScrollView style={{width: this.state.layoutWidth, height: this.state.layoutHeight}}>
             <View style={styles.blockContainer}>
               <View style={{margin: marginOfBox, padding: 5}}>
                 <Text style={styles.indexTxt}>Question {index} of {selectedChoices.length}</Text>
@@ -226,6 +246,7 @@ export default class Block extends Component{
             <ControlBlocks nextBtn={this.state.showNext} backBtn={this.state.showBack} submit={this.submit}
                            submitBtn={this.state.submitBtn}
                            nextBlock={this.nextBlock.bind(this)} previousBlock={this.previousBlock.bind(this)}/>
+
             <PopupDialog width={300} height={300}
                         // dialogTitle={<DialogTitle title="EXIT" />}
                         dialogStyle={styles.dialogStyle}
@@ -252,8 +273,8 @@ export default class Block extends Component{
                       // dialogTitle={<DialogTitle title="EXIT" />}
                       dialogStyle={styles.progressView}
                      dismissOnTouchOutside={false}
-                     //onDismissed={() => console.log('dismiss')}
-                     //onShown={() => console.log('show')}
+                     onDismissed={() => this.setState({disableBtn: false})}
+                     onShown={() => this.setState({disableBtn: true})}
                      //haveOverlay={false}
                      overlayOpacity={0.7}
                      ref={(popupDialog) => {this.popupSubmit = popupDialog}}>
@@ -275,8 +296,11 @@ export default class Block extends Component{
                         </TouchableOpacity>
                       </View>
         </PopupDialog>
-        </View>
-        <Ad />
+       <Ad />
+      </ScrollView>
+
+       </View>
+
       </View>
     )
   }

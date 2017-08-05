@@ -18,12 +18,6 @@ import Ad from './ads/ad'
 // import sample from '../json/sample.js'
 const {width, height} = Dimensions.get('window')
 
-let fontSizeOfcounterTxt = 16
-if (width == 1024) {
-  fontSizeOfcounterTxt = 26
-} else if (width == 768) {
-  fontSizeOfcounterTxt = 21
-} else {}
 class Study extends Component {
   constructor(props){
     super(props)
@@ -42,13 +36,24 @@ class Study extends Component {
       animation: '',
       numOfstate: undefined,
       sliderValue: 0,
+      containerOfDirection: 'column',
+      direction: 'row',
+      transform: [],
+      widthOfContainer: undefined,
+      heightOfContainer: undefined,
+      flexOfContainer: 1,
+      heightOfSlider: height,
+      flexOfCounter: 0.7,
+      fontSizeOfcounterTxt: 16
+      //heightOfSlider: undefined,
     }
   }
   componentDidMount() {
     AsyncStorage.getItem('@LOCATION', (err, result) => {
-      this.setState({numOfstate: parseInt(result)})
+      this.state.numOfstate = parseInt(result)
     })
     this.setText()
+    this.layoutChanged()
   }
   /* nextCard defines the question what come after the
   current question. It has the same functionality as
@@ -147,32 +152,64 @@ class Study extends Component {
     //console.log(this.state.sliderValue)
     //this.state.s
   }
+  layoutChanged() {
+    const {width, height} = Dimensions.get('window')
+
+    if (width == 1024 || height == 1024) {
+      this.state.fontSizeOfcounterTxt = 26
+    } else if (width == 768 || 768) {
+      this.state.fontSizeOfcounterTxt = 21
+    } else {}
+    if (width > height) {
+      this.setState({
+        containerOfDirection: 'row',
+        direction: 'column',
+        transform: [{ rotateZ : '-90deg' }],
+        widthOfContainer: width,
+        heightOfContainer: height - 200,
+        flexOfContainer: 4,
+        heightOfSlider: height,
+        flexOfCounter: 1,
+        //heightOfSlider: width
+      })
+    } else {
+      this.setState({
+        containerOfDirection: 'column',
+        direction: 'row',
+        transform: [],
+        widthOfContainer: width,
+        heightOfContainer: height,
+        flexOfContainer: 4,
+        heightOfSlider: width,
+        flexOfCounter: 0.7
+        //heightOfSlider: height
+      })
+    }
+  }
   render() {
     var cardNum = this.state.cardNum
     return (
-    <View style={{flex: 1, backgroundColor: '#bdc3c7'}}>
+    <View style={{flex: 1, backgroundColor: '#bdc3c7'}}
+          onLayout={() => this.layoutChanged()}>
       <StatusBar barStyle="light-content"/>
       <NavBar />
-      <View style={styles.container}>
-        <View style={[styles.cardContainer, {width: this.state.width, height: this.state.height/1.4}]}>
-          <View style={{flexDirection: 'row', margin: 10, flex: 0.7}}>
+      <View style={[styles.container, {flex: this.state.flexOfContainer}]}>
+        <View style={[styles.cardContainer, {flexDirection: this.state.containerOfDirection}]}>
+          <View style={{flexDirection: this.state.direction, justifyContent: 'center', alignItems: 'center',
+                        flex: this.state.flexOfCounter}}>
           <View style={styles.counter}>
-            <Text style={styles.counterTxt}>{this.state.index + 1}/100</Text>
+            <Text style={[styles.counterTxt, {fontSize: this.state.fontSizeOfcounterTxt}]}>{this.state.index + 1}/100</Text>
           </View>
-          <View style={styles.slider}>
             <Slider minimumTrackTintColor="rgb(0, 102, 102)"
                     step={1}
                     maximumValue={99}
                     minimumValue={0}
-                    style={styles.sliderSty}
+                    style={[styles.slider, {transform: this.state.transform, width: this.state.heightOfSlider/2}]}
                     value={this.state.sliderValue}
-                    // disabled={true}
-                    //thumbImage={require('../assets/thumb.png')}
-                    // trackImage={require('../assets/track.png')}
                     onValueChange={this.sliderValueChange}
                     onSlidingComplete={this.sliderComplete}
                   />
-          </View>
+
           </View>
           <Animatable.View style={styles.card}
                            animation={this.state.animation}
@@ -186,11 +223,12 @@ class Study extends Component {
           <View style={styles.controlCard}>
             <ControlCard nextCard={this.nextCard.bind(this)}
                          previousCard={this.previousCard.bind(this)}/>
+
           </View>
         </View>
-        <Ad />
 
       </View>
+      <Ad />
     </View>
     )
   }
@@ -198,15 +236,14 @@ class Study extends Component {
 
 const styles=StyleSheet.create({
     container: {
-      flex: 1,
       marginTop: 15,
-      justifyContent: 'center',
-      alignItems: 'center',
       backgroundColor: '#bdc3c7'
+
     },
     cardContainer: {
       flex: 1,
-      // backgroundColor: 'red',
+      marginLeft: 3,
+      marginRight: 3,
     },
     card: {
       flex: 6,
@@ -222,22 +259,24 @@ const styles=StyleSheet.create({
     },
     counter: {
       flex: 0.8,
-      backgroundColor: 'transparent',
+      // backgroundColor: 'blue',
       borderRadius: 70,
       marginLeft: 10,
+      padding: 4,
       marginBottom: 5,
-      padding: 1,
       justifyContent: 'center',
       alignItems: 'center',
       borderWidth: StyleSheet.hairlineWidth,
       borderColor: 'rgb(0, 102, 102)'
     },
     counterTxt: {
-      fontSize: fontSizeOfcounterTxt,
       color: 'rgb(0, 102, 102)',
       fontFamily: 'Times New Roman',
     },
     slider: {
+      alignSelf: 'center',
+      //marginLeft: 10,
+      //marginRight: 10,
       flex: 4,
       alignSelf: 'center',
       marginLeft: 10,
@@ -246,6 +285,7 @@ const styles=StyleSheet.create({
     },
     sliderSty: {
       // borderColor: 'red'
+
     }
 })
 

@@ -26,7 +26,7 @@ let fontSizeOfvalue = 16
 let popupDialogSize = 300
 let flexOfPicker = 3
 
-if (width == 1024) {
+if (width == 1024 || height == 1024) {
   marginLeftOfItem = 20
   iconSize = 60
   textDesingfontSize = 25
@@ -35,7 +35,7 @@ if (width == 1024) {
   popupDialogSize = 600
   flexOfPicker = 6
   // txtDialogFontSize = 20
-} else if (width == 768) {
+} else if (width == 768 || 768) {
   marginLeftOfItem = 10
   iconSize = 50
   textDesingfontSize = 22
@@ -48,10 +48,16 @@ export default class Setting extends Component {
   constructor(props) {
     super(props)
       this.state = {
-        valueOfQuiz: '25',
-        valueOfLocation: 24,
+        valueOfQuiz: '10',
+        valueOfLocation: 36,
         active: false,
       }
+  }
+
+  componentWillMount() {
+    //setQuantity() need called before AsyncStorage.getItem()
+    //This is why setting.js got crashed
+    this.setQuantity()
   }
 
   componentDidMount() {
