@@ -13,8 +13,9 @@ const Card = (props) => {
   let fontSizeOfansSty = 18
 
   if (width == 1366 || height == 1366) {
-    fontSizeOfquesSty = 29
-    fontSizeOfansSty = 28
+
+    fontSizeOfquesSty = 39
+    fontSizeOfansSty = 38
   } else if (width == 768 || height == 768) {
     fontSizeOfquesSty = 29
     fontSizeOfansSty = 28

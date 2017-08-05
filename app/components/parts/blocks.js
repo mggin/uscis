@@ -27,11 +27,11 @@ let sizeOfPopUpDialog = 350
 let fontSizeOfPercent = 30
 let fontSizeOfProgress = 18
 let fontSizeOfindexTxt = 16
-
+let paddingOfbox = 15
 if (width == 1366 || height == 1366) {
-  fontSizeOfquesTxt = 29
-  fontSizeOfchoiceTxt = 27
-  fontSizeOfindexTxt = 25
+  fontSizeOfquesTxt = 35
+  fontSizeOfchoiceTxt = 34
+  fontSizeOfindexTxt = 33
   marginOfBox = 10
   betweenBox = 10
   fontSizeOfpopItemsTxt = 27
@@ -39,6 +39,7 @@ if (width == 1366 || height == 1366) {
   sizeOfPopUpDialog = 700
   fontSizeOfProgress = 28
   fontSizeOfPercent = 60
+  paddingOfbox = 25
 } else if (width == 768 || height == 768) {
   fontSizeOfquesTxt = 24
   fontSizeOfchoiceTxt = 22
@@ -50,6 +51,7 @@ if (width == 1366 || height == 1366) {
   sizeOfPopUpDialog = 500
   fontSizeOfProgress = 23
   fontSizeOfPercent = 45
+  paddingOfbox = 20
 } else {}
 
 
@@ -326,7 +328,7 @@ const styles=StyleSheet.create({
    fontFamily: 'Times New Roman'
  },
  box: {
-   padding: 15,
+   padding: paddingOfbox,
    marginLeft: marginOfBox,
    marginRight: marginOfBox,
    marginBottom: betweenBox,

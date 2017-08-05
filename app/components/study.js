@@ -156,6 +156,7 @@ class Study extends Component {
     const {width, height} = Dimensions.get('window')
 
     if (width == 1366 || height == 1366) {
+      console.log('1366 in')
       this.state.fontSizeOfcounterTxt = 26
     } else if (width == 768 || 768) {
       this.state.fontSizeOfcounterTxt = 21
