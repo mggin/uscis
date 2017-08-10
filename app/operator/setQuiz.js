@@ -27,7 +27,7 @@ function randomQuiz(quizQuantity) {
   let condition = true
   while (condition) {
      num = Math.floor((Math.random() * 96) + 0)
-    console.log(quizQuantity)
+  //  console.log(quizQuantity)
     if (numOfRandomQuiz.length === quiz) {
       condition = false
     } else if (!numOfRandomQuiz.includes(num)) {

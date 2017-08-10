@@ -89,12 +89,12 @@ export default class Block extends Component{
   }
   shouldComponentUpdate() {
     var update = true
-    console.log('console' + listOfQuiz.length)
+    //console.log('console' + listOfQuiz.length)
     if (listOfQuiz.length == 0) {
       console.log('update')
       update = false
     }
-    console.log(update)
+    //console.log(update)
     return update
   }
   nextBlock() {
@@ -110,8 +110,8 @@ export default class Block extends Component{
     this.setAnswer(selectedChoices[this.state.index])
   }
   nextAndBackShow() {
-    console.log(this.state.index + 'nextAndBackShow')
-    console.log(selectedChoices.length + 'selectedChoices')
+    //console.log(this.state.index + 'nextAndBackShow')
+    //console.log(selectedChoices.length + 'selectedChoices')
     if (this.state.index == 0) {
       this.setState({showNext: true, showBack: false, submitBtn: false})
     } else if (this.state.index == selectedChoices.length-1){
@@ -179,7 +179,7 @@ export default class Block extends Component{
   }
   quitBtn() {
     //this.restartBtn()
-    console.log(this.state.index + 'index')
+    //console.log(this.state.index + 'index')
     Actions.menu({type: 'back'})
   }
   layoutChanged() {

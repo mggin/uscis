@@ -20,7 +20,7 @@ if (width == 1366 || height == 1366) {
   fontSizeOfref = 25
   fontSizeOfzaus = 27
   fontSizeOfdeveloper = 26
-} else if (width == 768 || 768){
+} else if (width == 768 || height == 768){
   fontSizeOfcredit = 24
   fontSizeOfref = 20
   fontSizeOfzaus = 22

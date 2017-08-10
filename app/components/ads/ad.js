@@ -10,7 +10,7 @@ import {
 
 const {width, height} = Dimensions.get('window')
 
-let marginTopOfadSty = 15
+let marginTopOfadSty = 20
 
 if (width > 740) {
   marginTopOfadSty = 70
@@ -18,14 +18,14 @@ if (width > 740) {
 const Ad = () => {
   let banner =   <AdMobBanner
                     bannerSize="banner"
-                    adUnitID="ca-app-pub-3325489361196839/4250688472"
-                    testDeviceID="EMULATOR" />
+                    //testDeviceID="EMULATOR"
+                    adUnitID="ca-app-pub-3325489361196839/4250688472" />
 
    if (width > 740) {
      banner = <AdMobBanner
                   bannerSize="leaderboard"
                   adUnitID="ca-app-pub-3325489361196839/4250688472"
-                  testDeviceID="EMULATOR"
+                  //testDeviceID="EMULATOR"
                   didFailToReceiveAdWithError={this.bannerError}/>
    }
 
@@ -38,7 +38,7 @@ const Ad = () => {
 
 const styles=StyleSheet.create({
   adSty: {
-    marginBottom: 1,
+    marginTop: marginTopOfadSty,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent'

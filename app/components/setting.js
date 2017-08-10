@@ -20,7 +20,7 @@ const {width, height}  = Dimensions.get('window')
 let marginLeftOfItem = 4
 let iconSize = 35
 let txtDialogFontSize = 16
-let textDesingfontSize = 17
+let textDesingfontSize = 15
 let heightOfItem = 60
 let fontSizeOfvalue = 16
 let popupDialogSize = 300
@@ -35,7 +35,7 @@ if (width == 1366 || height == 1366) {
   popupDialogSize = 600
   flexOfPicker = 6
   // txtDialogFontSize = 20
-} else if (width == 768 || 768) {
+} else if (width == 768 || height == 768) {
   marginLeftOfItem = 10
   iconSize = 50
   textDesingfontSize = 22
@@ -49,7 +49,7 @@ export default class Setting extends Component {
     super(props)
       this.state = {
         valueOfQuiz: '10',
-        valueOfLocation: 36,
+        valueOfLocation: 35,
         active: false,
       }
   }

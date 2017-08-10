@@ -32,16 +32,11 @@ export default class Test extends Component {
     }
 
   }
-  componentDidMount() {
-    console.log('componentWillMount')
-    // this.resetBlock()
-    this.getDataAndSet()
-    // console.log(quizQuantity)
 
-  }
   componentWillMount() {
     clearListOfQuiz()
     // setQuiz(10)
+    this.getDataAndSet()
   }
 
   getDataAndSet() {
@@ -49,8 +44,8 @@ export default class Test extends Component {
       // console.log(err)
       // quizQuantity = result
       setQuiz(result)
-      console.log('run')
-      this.setState({quizQuantity: result})
+      console.log('show result ' + result)
+      this.state.quizQuantity = result
       // console.log(this.state.quizQuantity + 'quiz ')
       // this.setState({quizQuantity: result})
     })
@@ -96,8 +91,6 @@ export default class Test extends Component {
       QuizBlock.push(block)
     }
     */
-    console.log(listOfQuiz)
-    console.log('print listOfQuiz on test')
     return (
       <View style={{flex: 1}}>
         <StatusBar backgroundColor="blue"

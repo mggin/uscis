@@ -15,11 +15,12 @@ import {
   Dimensions,
   StatusBar,
   ScrollView,
+  AsyncStorage,
 } from 'react-native';
 import Ad from './ads/ad'
 import LinearGradient from 'react-native-linear-gradient';
 import {Actions, Scenes} from 'react-native-router-flux'
-import {listOfQuiz, clearListOfQuiz} from '../operator/setQuiz'
+import {listOfQuiz, clearListOfQuiz, setQuiz} from '../operator/setQuiz'
 import Orientation from 'react-native-orientation';
 // import studyImage from './assets/uscis-study.png'
 
@@ -38,26 +39,17 @@ export default class Menu extends Component {
       layoutWidth: width,
       layoutHeight: height,
       valueOfQuiz: '10',
-      valueOfLocation: 36,
+      valueOfLocation: 35,
     }
 
   }
   componentWillMount() {
-    try {
       AsyncStorage.setItem('@QU1Z', this.state.valueOfQuiz);
+      console.log('show valueOfQuiz ' + this.state.valueOfQuiz)
       AsyncStorage.setItem('@LOCATION', this.state.valueOfLocation.toString());
-    } catch (error) {
-   // Error saving data
-    }
-     this.layoutChanged()
-  }
-  componentDidMount() {
-    console.log('did')
+      this.layoutChanged()
   }
   handle1024(width) {
-    if (width == this.state.layoutHeight) {
-
-    } else {}
     this.state.paddingRight = 70 // +50
     this.state.paddingBottom = 70 // +50
     this.state.imageSize = 200 // +100
@@ -77,7 +69,6 @@ export default class Menu extends Component {
     if (width == 1366 || height == 1366) {
       this.handle1024(width)
     } else if (width == 768 || height == 768) {
-      console.log('768 in')
       this.handle768(width)
     } else {}
     if (width > height) {
@@ -95,7 +86,7 @@ export default class Menu extends Component {
 
   render() {
     //console.log(listOfQuiz)
-    console.log('render')
+
     return (
       <View style={{flex: 1}}
             onLayout={() => this.layoutChanged()}>

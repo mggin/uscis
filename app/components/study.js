@@ -44,7 +44,7 @@ class Study extends Component {
       flexOfContainer: 1,
       heightOfSlider: height,
       flexOfCounter: 0.7,
-      fontSizeOfcounterTxt: 16
+      fontSizeOfcounterTxt: 5
       //heightOfSlider: undefined,
     }
   }
@@ -158,9 +158,11 @@ class Study extends Component {
     if (width == 1366 || height == 1366) {
       console.log('1366 in')
       this.state.fontSizeOfcounterTxt = 26
-    } else if (width == 768 || 768) {
+    } else if (width == 768 || height == 768) {
       this.state.fontSizeOfcounterTxt = 21
-    } else {}
+    } else {
+      this.state.fontSizeOfcounterTxt = 16
+    }
     if (width > height) {
       this.setState({
         containerOfDirection: 'row',
